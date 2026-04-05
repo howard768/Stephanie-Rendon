@@ -395,7 +395,7 @@ function ContactPage() {
     const form = e.target;
     const data = new FormData(form);
     try {
-      await fetch('https://formspree.io/f/xqaqpgvk', {
+      await fetch('https://formspree.io/f/mvzvveqn', {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
