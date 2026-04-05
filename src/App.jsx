@@ -236,7 +236,11 @@ function PortfolioPage({ activeCategory, onSelectCategory }) {
   const portfolioContent = {
     press: (
       <div className="page-enter w-full flex flex-col md:flex-row items-start max-w-6xl mx-auto mt-4 sm:mt-8 gap-6 md:gap-12 px-4 sm:px-10">
-        <SectionHeader title="Press Releases & Stories" subtitle="Select work" />
+        <SectionHeader
+          title="Press Releases & Stories"
+          subtitle="Select work"
+          description="From research breakthroughs to community impact, I write press releases and feature stories that translate complex work into compelling narratives that earn coverage and engage audiences."
+        />
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <PortfolioCard
             image={disasterImg}
