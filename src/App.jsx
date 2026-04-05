@@ -87,7 +87,7 @@ function AboutPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
           {[
             'Leads marketing, communications, and community engagement for School in the Square, a PreK–12 charter network in Washington Heights and Inwood',
-            'Led national media relations for the American Red Cross, securing 300+ media hits during high-peak seasons',
+            'Ran media strategy at the American Red Cross and supported national crisis and disaster response communications across the organization',
             'Directed communications for SOS Children\'s Villages, landing coverage in NBC, CNN, Reuters, and The Associated Press',
             'Managed FIU Stempel College\'s marketing across brand, editorial, media, social, and advertising',
             'Coordinated a digital campaign with Huffington Post and Johnson & Johnson that doubled website traffic',
