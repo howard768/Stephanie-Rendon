@@ -48,24 +48,56 @@ function MobileMenuButton({ isOpen, onClick }) {
   );
 }
 
-/* ─── Bio ─── */
-const bio = `For 13 years, I've built strategic communication programs that deliver measurable results in brand visibility and community engagement. As a bilingual professional (English/Spanish), I craft narratives that resonate with diverse audiences through data-driven insights and authentic storytelling. I specialize in helping mission-driven organizations amplify their impact and build genuine community connections.`;
-
 /* ─── About Page ─── */
 function AboutPage() {
   return (
-    <div className="page-enter flex flex-1 items-center justify-center w-full max-w-6xl mx-auto min-h-[60vh] sm:min-h-[70vh] px-6 sm:px-10 py-12">
-      <div className="flex flex-col md:flex-row w-full items-center justify-center gap-8 md:gap-12">
+    <div className="page-enter w-full max-w-6xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
+      {/* Bio section */}
+      <div className="flex flex-col md:flex-row w-full items-center justify-center gap-8 md:gap-12 mb-16 sm:mb-20">
         <img
           src={headshot}
           alt="Stephanie Rendon headshot"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-80 md:h-80 object-cover rounded-full border-8 border-rose-200 shadow-xl flex-shrink-0"
+          className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-full border-8 border-rose-200 shadow-xl flex-shrink-0"
           style={{ background: '#fff8f1' }}
         />
-        <div className="flex-1 flex items-center justify-center">
+        <div className="flex-1 flex flex-col gap-4">
           <p className="text-lg sm:text-xl md:text-2xl text-rose-900 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-            {bio}
+            I'm a bilingual communications leader with 13+ years of experience shaping narratives for organizations like the American Red Cross, SOS Children's Villages, and Florida International University. Currently, I serve as Director of Marketing & Communications at FIU's Robert Stempel College of Public Health & Social Work, where I lead brand strategy, media relations, and editorial across a $21 million research portfolio.
           </p>
+          <p className="text-base sm:text-lg text-rose-900/80 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
+            My work has been featured in The New York Times, NBC News, CBS News, The Today Show, CNN, The Washington Post, The Associated Press, and Bloomberg. I specialize in crisis communications, media training, and turning complex stories into coverage that moves people to act.
+          </p>
+        </div>
+      </div>
+
+      {/* Featured In logo bar */}
+      <div className="w-full mb-16 sm:mb-20">
+        <p className="text-xs font-bold text-amber-800/60 uppercase tracking-widest text-center mb-6" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Featured In</p>
+        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-60">
+          <img src={nytLogo} alt="The New York Times" className="h-5 sm:h-6 w-auto object-contain grayscale" />
+          <img src={nbcLogo} alt="NBC News" className="h-8 sm:h-10 w-auto object-contain grayscale" />
+          <img src={todayLogo} alt="Today Show" className="h-6 sm:h-8 w-auto object-contain grayscale" />
+          <img src={cbsLogo} alt="CBS News" className="h-6 sm:h-8 w-auto object-contain grayscale" />
+        </div>
+      </div>
+
+      {/* Career highlights */}
+      <div className="w-full max-w-3xl mx-auto">
+        <p className="text-xs font-bold text-amber-800/60 uppercase tracking-widest text-center mb-8" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Career Highlights</p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
+          {[
+            'Led national media relations for the American Red Cross, securing 300+ media hits during high-peak seasons',
+            'Directed communications for SOS Children\'s Villages, landing coverage in NBC, CNN, Reuters, and The Associated Press',
+            'Managed FIU Stempel College\'s marketing across brand, editorial, media, social, and advertising',
+            'Produced video and editorial campaigns from concept to publication for research and student success stories',
+            'Coordinated a digital campaign with Huffington Post and Johnson & Johnson that doubled website traffic',
+            'Placed panelists at the Clinton Global Initiative and United Nations Foundation events',
+          ].map((item, i) => (
+            <div key={i} className="flex items-start gap-3">
+              <span className="mt-1.5 w-2 h-2 rounded-full bg-rose-300 flex-shrink-0"></span>
+              <p className="text-sm sm:text-base text-rose-900/80 leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>{item}</p>
+            </div>
+          ))}
         </div>
       </div>
     </div>
@@ -362,8 +394,11 @@ function ContactPage() {
       >
         Let's Connect
       </h2>
-      <p className="text-lg sm:text-xl text-rose-900/70 mb-8 sm:mb-10 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-        Interested in collaborating or learning more about my work? I'd love to hear from you.
+      <p className="text-base sm:text-lg text-rose-900/70 mb-3 sm:mb-4 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
+        Available for strategic communications consulting, media training, campaign development, and crisis communications.
+      </p>
+      <p className="text-base sm:text-lg text-rose-900/50 mb-8 sm:mb-10 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
+        I'd love to hear from you.
       </p>
       <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8">
         <a
