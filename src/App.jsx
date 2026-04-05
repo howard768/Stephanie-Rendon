@@ -62,10 +62,10 @@ function AboutPage() {
         />
         <div className="flex-1 flex flex-col gap-4">
           <p className="text-lg sm:text-xl md:text-2xl text-rose-900 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-            I'm a bilingual communications leader with 13+ years of experience shaping narratives for organizations like the American Red Cross, SOS Children's Villages, and Florida International University. Currently, I serve as Director of Marketing & Communications at FIU's Robert Stempel College of Public Health & Social Work, where I lead brand strategy, media relations, and editorial across a $21 million research portfolio.
+            I'm a bilingual communications leader with 14+ years of experience shaping narratives for mission-driven organizations. Currently, I serve as Head of Marketing & Communications at School in the Square, a PreK–12 public charter school network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model. Before that, I led brand strategy, media relations, and editorial at FIU's Robert Stempel College of Public Health & Social Work, and directed national communications for the American Red Cross and SOS Children's Villages.
           </p>
           <p className="text-base sm:text-lg text-rose-900/80 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-            My work has been featured in The New York Times, NBC News, CBS News, The Today Show, CNN, The Washington Post, The Associated Press, and Bloomberg. I specialize in crisis communications, media training, and turning complex stories into coverage that moves people to act.
+            My work has been featured in The New York Times, NBC News, CBS News, The Today Show, CNN, The Washington Post, The Associated Press, and Bloomberg. I specialize in brand strategy, community engagement, crisis communications, and turning complex stories into coverage that moves people to act.
           </p>
         </div>
       </div>
@@ -86,10 +86,10 @@ function AboutPage() {
         <p className="text-xs font-bold text-amber-800/60 uppercase tracking-widest text-center mb-8" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Career Highlights</p>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
           {[
+            'Leads marketing, communications, and community engagement for School in the Square, a PreK–12 charter network in Washington Heights and Inwood',
             'Led national media relations for the American Red Cross, securing 300+ media hits during high-peak seasons',
             'Directed communications for SOS Children\'s Villages, landing coverage in NBC, CNN, Reuters, and The Associated Press',
             'Managed FIU Stempel College\'s marketing across brand, editorial, media, social, and advertising',
-            'Produced video and editorial campaigns from concept to publication for research and student success stories',
             'Coordinated a digital campaign with Huffington Post and Johnson & Johnson that doubled website traffic',
             'Placed panelists at the Clinton Global Initiative and United Nations Foundation events',
           ].map((item, i) => (
