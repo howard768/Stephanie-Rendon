@@ -2,15 +2,15 @@ import './index.css';
 import headshot from './assets/Stephanie_Headshot.jpeg';
 import disasterImg from './assets/disaster-management.jpeg';
 import socialworkProfImg from './assets/socialwork_prof.jpeg';
-import illustrationImg from './assets/Illustration_Example.png';
+import illustrationImg from './assets/Illustration_Example.webp';
 import expertTappedImg from './assets/expert_tapped.jpg';
-import majorAgenciesImg from './assets/major_agencies.png';
-import aspiringMedicalImg from './assets/aspiring_medical.png';
+import majorAgenciesImg from './assets/major_agencies.webp';
+import aspiringMedicalImg from './assets/aspiring_medical.webp';
 import celebratingHeroesImg from './assets/celebrating_heroes.jpg';
-import nbcLogo from './assets/NBC_Peacock_1986.svg.png';
-import todayLogo from './assets/Today_logo.svg.png';
+import nbcLogo from './assets/NBC_Peacock_1986.svg.webp';
+import todayLogo from './assets/Today_logo.svg.webp';
 import nytLogo from './assets/New_York_Times_logo_variation.jpg';
-import cbsLogo from './assets/CBS_News.svg.png';
+import cbsLogo from './assets/CBS_News.svg.webp';
 import stephArcInfield from './assets/steph_arc_infield.JPG';
 import stephOnCopter from './assets/steph_oncopter.jpg';
 import { useState, useEffect } from 'react';
@@ -44,6 +44,48 @@ function MobileMenuButton({ isOpen, onClick }) {
       <span className={`block w-5 h-0.5 bg-amber-900 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
       <span className={`block w-5 h-0.5 bg-amber-900 my-1 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
       <span className={`block w-5 h-0.5 bg-amber-900 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
+    </button>
+  );
+}
+
+/* ─── YouTube Facade (lazy-load iframe on click) ─── */
+function YouTubeFacade({ videoId, title }) {
+  const [loaded, setLoaded] = useState(false);
+  const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
+
+  if (loaded) {
+    return (
+      <iframe
+        width="100%" height="220"
+        src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
+        title={title}
+        frameBorder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+        allowFullScreen
+        className="rounded-xl mb-4"
+      />
+    );
+  }
+
+  return (
+    <button
+      onClick={() => setLoaded(true)}
+      className="relative w-full rounded-xl mb-4 overflow-hidden cursor-pointer group"
+      style={{ height: '220px', border: 'none', padding: 0, background: '#000' }}
+      aria-label={`Play video: ${title}`}
+    >
+      <img
+        src={thumbUrl}
+        alt={title}
+        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
+        loading="lazy"
+      />
+      <div className="absolute inset-0 flex items-center justify-center">
+        <svg className="w-16 h-16 text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all drop-shadow-lg" viewBox="0 0 68 48" fill="none">
+          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/>
+          <path d="M45 24L27 14v20" fill="white"/>
+        </svg>
+      </div>
     </button>
   );
 }
@@ -135,7 +177,7 @@ function PortfolioCard({ image, source, title, description, linkUrl, linkText = 
   return (
     <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
       <div className="img-hover-zoom w-full mb-4">
-        <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl" />
+        <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl" loading="lazy" />
       </div>
       <span className="text-xs font-bold text-amber-800 mb-1.5 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{source}</span>
       <h3 className="text-base sm:text-lg font-bold text-amber-900 mb-2 leading-snug" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{title}</h3>
@@ -157,7 +199,7 @@ function PortfolioCard({ image, source, title, description, linkUrl, linkText = 
 function MediaCard({ logo, logoAlt, source, title, description, linkUrl }) {
   return (
     <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-      <img src={logo} alt={logoAlt} className="h-8 sm:h-10 w-auto mb-3 object-contain" />
+      <img src={logo} alt={logoAlt} className="h-8 sm:h-10 w-auto mb-3 object-contain" loading="lazy" />
       <span className="text-xs font-bold text-amber-800 mb-1.5 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{source}</span>
       <h3 className="text-base sm:text-lg font-bold text-amber-900 mb-2 leading-snug" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{title}</h3>
       <p className="text-sm sm:text-base text-rose-900/80 mb-4 flex-1" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>{description}</p>
@@ -250,15 +292,15 @@ function PortfolioPage({ activeCategory, onSelectCategory }) {
         />
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
           <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <iframe width="100%" height="220" src="https://www.youtube.com/embed/m0uM1KTXAeg" title="SOS Children's Villages feature" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-xl mb-4"></iframe>
+            <YouTubeFacade videoId="m0uM1KTXAeg" title="SOS Children's Villages feature" />
             <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on young boy supported by SOS Children's Villages</span>
           </div>
           <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <iframe width="100%" height="220" src="https://www.youtube.com/embed/2CLX2927mpQ" title="FIU disaster preparedness" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-xl mb-4"></iframe>
+            <YouTubeFacade videoId="2CLX2927mpQ" title="FIU disaster preparedness" />
             <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on disaster preparedness program at FIU</span>
           </div>
           <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <iframe width="100%" height="220" src="https://www.youtube.com/embed/FcaM2s0_5AY" title="FIU researcher feature" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowFullScreen className="rounded-xl mb-4"></iframe>
+            <YouTubeFacade videoId="FcaM2s0_5AY" title="FIU researcher feature" />
             <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on researcher helping doctors treat hard-to-treat cancers</span>
           </div>
         </div>
@@ -388,21 +430,27 @@ function HomePage() {
 function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
+    setError(false);
     const form = e.target;
     const data = new FormData(form);
     try {
-      await fetch('https://formspree.io/f/mvzvveqn', {
+      const res = await fetch('https://formspree.io/f/mvzvveqn', {
         method: 'POST',
         body: data,
         headers: { 'Accept': 'application/json' }
       });
-      setSubmitted(true);
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
     } catch {
-      setSubmitted(true);
+      setError(true);
     }
     setSending(false);
   };
@@ -425,7 +473,15 @@ function ContactPage() {
           <p className="text-base text-rose-900/70" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>Your message has been sent. I'll be in touch soon.</p>
         </div>
       ) : (
+        <>
+        {error && (
+          <div className="bg-red-50 border border-red-200 rounded-xl p-4 w-full max-w-lg mb-4 text-center">
+            <p className="text-red-800 text-sm" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Something went wrong. Please try again or reach out on LinkedIn.</p>
+          </div>
+        )}
         <form onSubmit={handleSubmit} className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 w-full max-w-lg flex flex-col gap-4">
+          {/* Honeypot field - hidden from humans, catches bots */}
+          <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
           <div className="flex flex-col sm:flex-row gap-4">
             <div className="flex-1 flex flex-col gap-1.5">
               <label htmlFor="name" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Name</label>
@@ -473,6 +529,7 @@ function ContactPage() {
             {sending ? 'Sending...' : 'Send Message'}
           </button>
         </form>
+        </>
       )}
 
       <div className="mt-8">
@@ -497,6 +554,17 @@ function App() {
   const [portfolioCategory, setPortfolioCategory] = useState(null);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
+  // Dynamic page titles for SEO and UX
+  useEffect(() => {
+    const titles = {
+      home: 'Stephanie Rendon | Strategic Communications & Media Relations',
+      about: 'About | Stephanie Rendon',
+      portfolio: 'Portfolio | Stephanie Rendon',
+      contact: 'Contact | Stephanie Rendon'
+    };
+    document.title = titles[page] || titles.home;
+  }, [page]);
+
   const navigate = (newPage, category = null) => {
     setPage(newPage);
     setPortfolioCategory(category);
@@ -506,6 +574,10 @@ function App() {
 
   return (
     <div className="w-screen min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-rose-100 flex flex-col">
+      {/* Skip to content link for accessibility */}
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-amber-900 focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:font-bold">
+        Skip to content
+      </a>
       {/* Navigation Bar */}
       <header className="w-full sticky top-0 z-50 bg-gradient-to-br from-amber-100/95 via-orange-50/95 to-rose-100/95 backdrop-blur-sm">
         <nav className="w-full flex items-center justify-between px-4 sm:px-10 py-4 sm:py-6">
@@ -543,7 +615,7 @@ function App() {
       </header>
 
       {/* Page content */}
-      <main className="flex-1 flex flex-col">
+      <main id="main-content" className="flex-1 flex flex-col">
         {page === 'home' && <HomePage />}
         {page === 'about' && <AboutPage />}
         {page === 'portfolio' && (
