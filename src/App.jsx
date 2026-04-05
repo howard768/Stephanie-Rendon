@@ -501,6 +501,7 @@ function App() {
     setPage(newPage);
     setPortfolioCategory(category);
     setMobileMenuOpen(false);
+    window.scrollTo({ top: 0, behavior: 'instant' });
   };
 
   return (
