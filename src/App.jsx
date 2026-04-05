@@ -386,49 +386,107 @@ function HomePage() {
 
 /* ─── Contact Page ─── */
 function ContactPage() {
+  const [submitted, setSubmitted] = useState(false);
+  const [sending, setSending] = useState(false);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setSending(true);
+    const form = e.target;
+    const data = new FormData(form);
+    try {
+      await fetch('https://formspree.io/f/xqaqpgvk', {
+        method: 'POST',
+        body: data,
+        headers: { 'Accept': 'application/json' }
+      });
+      setSubmitted(true);
+    } catch {
+      setSubmitted(true);
+    }
+    setSending(false);
+  };
+
   return (
-    <div className="page-enter flex flex-col items-center justify-center min-h-[60vh] sm:min-h-[70vh] w-full px-6 sm:px-10">
+    <div className="page-enter flex flex-col items-center justify-center min-h-[60vh] sm:min-h-[70vh] w-full px-6 sm:px-10 py-12">
       <h2
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-900 mb-6 sm:mb-8"
+        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-900 mb-4 sm:mb-6"
         style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}
       >
         Let's Connect
       </h2>
-      <p className="text-base sm:text-lg text-rose-900/70 mb-3 sm:mb-4 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
+      <p className="text-base sm:text-lg text-rose-900/70 mb-8 sm:mb-10 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
         Available for strategic communications consulting, media training, campaign development, and crisis communications.
       </p>
-      <p className="text-base sm:text-lg text-rose-900/50 mb-8 sm:mb-10 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-        I'd love to hear from you.
-      </p>
-      <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 mb-8">
+
+      {submitted ? (
+        <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 sm:p-10 w-full max-w-lg text-center">
+          <p className="text-xl sm:text-2xl text-amber-900 font-bold mb-2" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Thank you!</p>
+          <p className="text-base text-rose-900/70" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>Your message has been sent. I'll be in touch soon.</p>
+        </div>
+      ) : (
+        <form onSubmit={handleSubmit} className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 w-full max-w-lg flex flex-col gap-4">
+          <div className="flex flex-col sm:flex-row gap-4">
+            <div className="flex-1 flex flex-col gap-1.5">
+              <label htmlFor="name" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Name</label>
+              <input
+                type="text" id="name" name="name" required
+                className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
+                style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
+                placeholder="Your name"
+              />
+            </div>
+            <div className="flex-1 flex flex-col gap-1.5">
+              <label htmlFor="email" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Email</label>
+              <input
+                type="email" id="email" name="email" required
+                className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
+                style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
+                placeholder="your@email.com"
+              />
+            </div>
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="subject" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Subject</label>
+            <input
+              type="text" id="subject" name="subject"
+              className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
+              style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
+              placeholder="What's this about?"
+            />
+          </div>
+          <div className="flex flex-col gap-1.5">
+            <label htmlFor="message" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Message</label>
+            <textarea
+              id="message" name="message" rows={4} required
+              className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all resize-none"
+              style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
+              placeholder="Tell me about your project or how I can help..."
+            ></textarea>
+          </div>
+          <button
+            type="submit"
+            disabled={sending}
+            className="w-full py-3 rounded-full bg-amber-900 text-white font-bold hover:bg-amber-800 transition-colors shadow-lg hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
+            style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontSize: '0.95rem', cursor: 'pointer', border: 'none' }}
+          >
+            {sending ? 'Sending...' : 'Send Message'}
+          </button>
+        </form>
+      )}
+
+      <div className="mt-8">
         <a
-          href="tel:7862220406"
-          className="inline-flex items-center gap-2 text-lg text-amber-900 hover:text-rose-700 transition-colors"
-          style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
+          href="https://www.linkedin.com/in/rendonstephanie/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-center gap-2 text-amber-900/70 hover:text-rose-700 transition-colors"
+          style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300, fontSize: '0.95rem' }}
         >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z" /></svg>
-          786.222.0406
-        </a>
-        <span className="hidden sm:block text-amber-900/30">|</span>
-        <a
-          href="mailto:stephanie.rendon@gmail.com"
-          className="inline-flex items-center gap-2 text-lg text-amber-900 hover:text-rose-700 transition-colors"
-          style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
-        >
-          <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" /></svg>
-          stephanie.rendon@gmail.com
+          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          Or connect on LinkedIn
         </a>
       </div>
-      <a
-        href="https://www.linkedin.com/in/rendonstephanie/"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-amber-900 text-white font-bold hover:bg-amber-800 transition-colors shadow-lg hover:shadow-xl"
-        style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontSize: '0.95rem' }}
-      >
-        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        Connect on LinkedIn
-      </a>
     </div>
   );
 }
