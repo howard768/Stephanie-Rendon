@@ -1,641 +1,501 @@
+import { useEffect, useRef, useState } from 'react';
 import './index.css';
-import headshot from './assets/Stephanie_Headshot.jpeg';
+
+import stephaniePortrait from './assets/stephanie.png';
 import disasterImg from './assets/disaster-management.jpeg';
-import socialworkProfImg from './assets/socialwork_prof.jpeg';
-import illustrationImg from './assets/Illustration_Example.webp';
-import expertTappedImg from './assets/expert_tapped.jpg';
-import majorAgenciesImg from './assets/major_agencies.webp';
-import aspiringMedicalImg from './assets/aspiring_medical.webp';
-import celebratingHeroesImg from './assets/celebrating_heroes.jpg';
-import nbcLogo from './assets/NBC_Peacock_1986.svg.webp';
-import todayLogo from './assets/Today_logo.svg.webp';
-import nytLogo from './assets/New_York_Times_logo_variation.jpg';
-import cbsLogo from './assets/CBS_News.svg.webp';
-import stephArcInfield from './assets/steph_arc_infield.JPG';
-import stephOnCopter from './assets/steph_oncopter.jpg';
-import { useState, useEffect } from 'react';
+import logoNbc from './assets/logo-nbc.svg';
+import logoToday from './assets/logo-today.svg';
+import logoNyt from './assets/logo-nyt.svg';
+import logoCbs from './assets/logo-cbs.svg';
+import logoCnn from './assets/logo-cnn.svg';
+import logoWapo from './assets/logo-wapo.svg';
+// AP omitted: roundel logo collapses to a blank shape under the marquee's single-tone flatten.
+import logoBloomberg from './assets/logo-bloomberg.svg';
+import logoReuters from './assets/logo-reuters.svg';
+import logoHuffpost from './assets/logo-huffpost.svg';
 
-/* ─── Nav Link ─── */
-function NavLink({ href, children, onClick, isActive }) {
-  return (
-    <div className="flex flex-col items-center">
-      <a
-        href={href}
-        onClick={onClick}
-        className={`text-sm sm:text-base lg:text-lg font-extrabold uppercase text-amber-900 tracking-wide transition-all px-3 sm:px-5 lg:px-8 py-2 sm:py-3 rounded-md relative flex items-center justify-center hover:text-rose-700 hover:scale-105 focus:scale-105 focus:text-rose-700 duration-200${isActive ? ' text-rose-700 scale-105' : ''}`}
-        style={{ minHeight: '44px', cursor: 'pointer' }}
-      >
-        {children}
-      </a>
-      {isActive && <div className="w-8 sm:w-12 h-1 bg-rose-300 mt-1 rounded-full"></div>}
-    </div>
+const HERO_LINES = [
+  ['Strategic'],
+  ['communications'],
+  ['for ', { em: 'mission-' }],
+  [{ em: 'driven' }, ' work.'],
+];
+
+const MARQUEE_OUTLETS = [
+  { logo: logoNyt, alt: 'The New York Times', scale: 1 },
+  { logo: logoNbc, alt: 'NBC News', scale: 1.15 },
+  { logo: logoCbs, alt: 'CBS News', scale: 1.05 },
+  { logo: logoToday, alt: 'The Today Show', scale: 1 },
+  { logo: logoCnn, alt: 'CNN', scale: 1 },
+  { logo: logoWapo, alt: 'The Washington Post', scale: 0.95 },
+  { logo: logoBloomberg, alt: 'Bloomberg', scale: 0.95 },
+  { logo: logoReuters, alt: 'Reuters', scale: 1 },
+];
+
+const WORK_ITEMS = [
+  {
+    href: 'https://news.fiu.edu/2024/fiu-students-get-hands-on-experience-in-large-scale-disaster-response',
+    num: '01',
+    titleParts: [{ em: 'Disaster' }, ' Response Field Course'],
+    sector: "Press release translating FIU's hands-on graduate disaster-management program into a story the public could feel.",
+    tags: ['Press Release', 'Higher Ed'],
+    year: 'FIU · 2024',
+  },
+  {
+    href: 'https://www.prnewswire.com/news-releases/major-agencies-and-networks-support-a-new-psa-that-emphasizes-sos-childrens-villages-dedication-to-supporting-vulnerable-children-worldwide-300347663.html',
+    num: '02',
+    titleParts: ['Major Agencies Back ', { em: 'SOS Villages' }, ' PSA'],
+    sector: "National press release rallying major agencies and networks behind SOS Children's Villages' PSA for vulnerable kids.",
+    tags: ['NGO', 'Press Release', 'National'],
+    year: 'PR Newswire',
+  },
+  {
+    href: 'https://redcrosschat.org/2018/03/02/celebrating-heroes-meet-6-inspiring-earthquake-survivors/',
+    num: '03',
+    titleParts: ['Celebrating ', { em: 'Heroes' }, " of Mexico's Quake"],
+    sector: 'Feature story on six earthquake survivors in Mexico supported by the American Red Cross.',
+    tags: ['Red Cross', 'Feature', 'Crisis'],
+    year: '2018',
+  },
+  {
+    href: 'https://news.fiu.edu/2024/researching-psychiatric-disease-risks-linked-to-childhood-lead-exposure',
+    num: '04',
+    titleParts: ['Childhood Lead & ', { em: 'Psychiatric' }, ' Disease'],
+    sector: 'Multimillion-dollar study framed for a general audience — neurons, brain circuitry, behavior.',
+    tags: ['Research', 'Public Health'],
+    year: 'FIU · 2024',
+  },
+  {
+    href: 'https://news.fiu.edu/2025/social-work-professor-named-educator-of-the-year',
+    num: '05',
+    titleParts: ['Social Work ', { em: 'Educator' }, ' of the Year'],
+    sector: 'Feature profile on the FIU professor recognized for her contributions to the field.',
+    tags: ['Profile', 'Higher Ed'],
+    year: 'FIU · 2025',
+  },
+  {
+    href: 'https://news.fiu.edu/2023/fiu-doctoral-student-dreams-of-improving-peoples-health-one-tv-segment-at-a-time',
+    num: '06',
+    titleParts: ['One ', { em: 'TV Segment' }, ' at a Time'],
+    sector: "Feature story on a doctoral student's journey to become a medical correspondent.",
+    tags: ['Feature', 'Health'],
+    year: 'FIU · 2023',
+  },
+];
+
+const SERVICES = [
+  { num: 'S · 01', title: 'Brand & Narrative Strategy', body: 'Positioning, voice, and story architecture for organizations whose work is too complex for the category default.' },
+  { num: 'S · 02', title: 'Media Relations', body: 'Earned-media strategy, pitching, spokesperson prep, and relationships that make reporters call you back.' },
+  { num: 'S · 03', title: 'Crisis Communications', body: 'Rapid-response playbooks, bilingual family and stakeholder comms, and on-the-ground coordination when it counts.' },
+  { num: 'S · 04', title: 'Community Engagement', body: 'Programs that treat families, staff, and neighbors as audiences whose trust is earned — not assumed.' },
+  { num: 'S · 05', title: 'Editorial & Content', body: 'Publications, annual reports, long-form storytelling, and thought leadership that actually gets read.' },
+  { num: 'S · 06', title: 'Bilingual (EN/ES) Campaigns', body: 'Campaigns built bilingual from the start — not translated at the end. Cultural fluency, not just linguistic.' },
+];
+
+const PRESS_ITEMS = [
+  {
+    href: 'https://www.nbcnews.com/storyline/syrias-suffering-families/shot-during-cookies-milk-syrian-boys-story-n266356',
+    logo: logoNbc, alt: 'NBC News',
+    headline: "Shot During Cookies and Milk — a Syrian boy's story, supported by SOS Children's Villages.",
+    metaLeft: 'SOS · NGO',
+  },
+  {
+    href: 'https://www.nbcnews.com/storyline/syrias-children/child-war-survivor-syrias-children-dont-give-n51161',
+    logo: logoNbc, alt: 'NBC News',
+    headline: "A Liberian war survivor to Syria's children: Don't give up.",
+    metaLeft: 'SOS · NGO',
+  },
+  {
+    href: 'https://www.today.com/health/red-cross-urges-people-donate-blood-amid-coronavirus-concerns-t175665',
+    logo: logoToday, alt: 'TODAY',
+    headline: 'Red Cross urges blood donations as the pandemic squeezes supply.',
+    metaLeft: 'Red Cross',
+  },
+  {
+    href: 'https://www.nytimes.com/2020/05/21/climate/hurricane-season-2020-noaa.html',
+    logo: logoNyt, alt: 'The New York Times',
+    headline: 'NOAA predicts a busy Atlantic season — with FIU experts on preparedness.',
+    metaLeft: 'FIU · Climate',
+  },
+  {
+    href: 'https://www.cbsnews.com/miami/news/florida-international-university-stages-largest-disaster-drill-in-the-state/',
+    logo: logoCbs, alt: 'CBS News',
+    headline: 'FIU stages the largest disaster drill in the state.',
+    metaLeft: 'FIU',
+  },
+  {
+    href: 'https://www.huffpost.com/entry/why-it-is-important-to-he_b_7052246',
+    logo: logoHuffpost, alt: 'HuffPost',
+    headline: "Why it is important to help children in need — part of the J&J / HuffPost partnership that doubled SOS Children's Villages' web traffic.",
+    metaLeft: 'SOS · NGO',
+  },
+];
+
+const VIDEOS = [
+  {
+    href: 'https://www.youtube.com/watch?v=m0uM1KTXAeg',
+    date: 'SOS Villages',
+    titleParts: ['Feature on a young boy supported by ', { em: "SOS Children's Villages." }],
+    publication: 'YouTube',
+    category: 'Feature',
+  },
+  {
+    href: 'https://www.youtube.com/watch?v=2CLX2927mpQ',
+    date: 'FIU',
+    titleParts: ["Inside FIU's ", { em: 'disaster preparedness' }, ' program.'],
+    publication: 'YouTube',
+    category: 'Feature',
+  },
+  {
+    href: 'https://www.youtube.com/watch?v=FcaM2s0_5AY',
+    date: 'FIU',
+    titleParts: ['A researcher helping doctors treat ', { em: 'hard-to-treat cancers.' }],
+    publication: 'YouTube',
+    category: 'Feature',
+  },
+];
+
+const ANNUAL_REPORTS = [
+  {
+    href: 'https://issuu.com/fiupublications/docs/4965759993_stmpl_2024annualreport-issuu',
+    date: 'FIU Stempel College · 2024',
+    title: '2024 Impact Report',
+    body: 'The annual publication I led end-to-end: writing, editing, designer management, photo direction, and cross-department coordination.',
+  },
+  {
+    href: 'https://issuu.com/fiupublications/docs/stmpl_2023_public_health_impact_report_4965759993',
+    date: 'FIU Stempel College · 2023',
+    title: '2023 Public Health Impact Report',
+    body: "Showcasing public health research, programs, and community stories — a year's worth of work distilled for donors and peers.",
+  },
+];
+
+function renderParts(parts) {
+  return parts.map((p, i) =>
+    typeof p === 'string'
+      ? <span key={i}>{p}</span>
+      : <em key={i}>{p.em}</em>
   );
 }
 
-/* ─── Mobile Menu Button ─── */
-function MobileMenuButton({ isOpen, onClick }) {
-  return (
-    <button
-      onClick={onClick}
-      className="sm:hidden flex flex-col justify-center items-center w-10 h-10 rounded-md hover:bg-amber-200/50 transition-colors"
-      aria-label="Toggle menu"
-      style={{ background: 'transparent', border: 'none' }}
-    >
-      <span className={`block w-5 h-0.5 bg-amber-900 transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-1' : ''}`}></span>
-      <span className={`block w-5 h-0.5 bg-amber-900 my-1 transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`}></span>
-      <span className={`block w-5 h-0.5 bg-amber-900 transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-1' : ''}`}></span>
-    </button>
-  );
-}
+export default function App() {
+  const topbarRef = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-/* ─── YouTube Facade (lazy-load iframe on click) ─── */
-function YouTubeFacade({ videoId, title }) {
-  const [loaded, setLoaded] = useState(false);
-  const thumbUrl = `https://img.youtube.com/vi/${videoId}/hqdefault.jpg`;
-
-  if (loaded) {
-    return (
-      <iframe
-        width="100%" height="220"
-        src={`https://www.youtube-nocookie.com/embed/${videoId}?autoplay=1`}
-        title={title}
-        frameBorder="0"
-        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-        allowFullScreen
-        className="rounded-xl mb-4"
-      />
-    );
-  }
-
-  return (
-    <button
-      onClick={() => setLoaded(true)}
-      className="relative w-full rounded-xl mb-4 overflow-hidden cursor-pointer group"
-      style={{ height: '220px', border: 'none', padding: 0, background: '#000' }}
-      aria-label={`Play video: ${title}`}
-    >
-      <img
-        src={thumbUrl}
-        alt={title}
-        className="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity"
-        loading="lazy"
-      />
-      <div className="absolute inset-0 flex items-center justify-center">
-        <svg className="w-16 h-16 text-white opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all drop-shadow-lg" viewBox="0 0 68 48" fill="none">
-          <path d="M66.52 7.74c-.78-2.93-2.49-5.41-5.42-6.19C55.79.13 34 0 34 0S12.21.13 6.9 1.55C3.97 2.33 2.27 4.81 1.48 7.74.06 13.05 0 24 0 24s.06 10.95 1.48 16.26c.78 2.93 2.49 5.41 5.42 6.19C12.21 47.87 34 48 34 48s21.79-.13 27.1-1.55c2.93-.78 4.64-3.26 5.42-6.19C67.94 34.95 68 24 68 24s-.06-10.95-1.48-16.26z" fill="red"/>
-          <path d="M45 24L27 14v20" fill="white"/>
-        </svg>
-      </div>
-    </button>
-  );
-}
-
-/* ─── About Page ─── */
-function AboutPage() {
-  return (
-    <div className="page-enter w-full max-w-6xl mx-auto px-6 sm:px-10 py-12 sm:py-16">
-      {/* Bio section */}
-      <div className="flex flex-col md:flex-row w-full items-center justify-center gap-8 md:gap-12 mb-16 sm:mb-20">
-        <img
-          src={headshot}
-          alt="Stephanie Rendon headshot"
-          className="w-48 h-48 sm:w-64 sm:h-64 md:w-72 md:h-72 object-cover rounded-full border-8 border-rose-200 shadow-xl flex-shrink-0"
-          style={{ background: '#fff8f1' }}
-        />
-        <div className="flex-1 flex flex-col gap-4">
-          <p className="text-lg sm:text-xl md:text-2xl text-rose-900 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-            I'm a bilingual communications leader with 14+ years of experience shaping narratives for mission-driven organizations. Currently, I serve as Head of Marketing & Communications at School in the Square, a PreK–12 public charter school network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model. Before that, I led brand strategy, media relations, and editorial at FIU's Robert Stempel College of Public Health & Social Work, and shaped national communications for the American Red Cross and SOS Children's Villages.
-          </p>
-          <p className="text-base sm:text-lg text-rose-900/80 text-center md:text-left max-w-2xl leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-            My work has been featured in The New York Times, NBC News, CBS News, The Today Show, CNN, The Washington Post, The Associated Press, and Bloomberg. I specialize in brand strategy, community engagement, crisis communications, and turning complex stories into coverage that moves people to act.
-          </p>
-        </div>
-      </div>
-
-      {/* Featured In logo bar */}
-      <div className="w-full mb-16 sm:mb-20">
-        <p className="text-xs font-bold text-amber-800/60 uppercase tracking-widest text-center mb-6" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Featured In</p>
-        <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-12 md:gap-16 opacity-60">
-          <img src={nytLogo} alt="The New York Times" className="h-5 sm:h-6 w-auto object-contain grayscale" />
-          <img src={nbcLogo} alt="NBC News" className="h-8 sm:h-10 w-auto object-contain grayscale" />
-          <img src={todayLogo} alt="Today Show" className="h-6 sm:h-8 w-auto object-contain grayscale" />
-          <img src={cbsLogo} alt="CBS News" className="h-6 sm:h-8 w-auto object-contain grayscale" />
-        </div>
-      </div>
-
-      {/* Career highlights */}
-      <div className="w-full max-w-3xl mx-auto">
-        <p className="text-xs font-bold text-amber-800/60 uppercase tracking-widest text-center mb-8" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Career Highlights</p>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-12 gap-y-6">
-          {[
-            'Leads marketing, communications, and community engagement for School in the Square, a PreK–12 charter network in Washington Heights and Inwood',
-            'Ran media strategy at the American Red Cross and supported national crisis and disaster response communications across the organization',
-            'Directed communications for SOS Children\'s Villages, landing coverage in NBC, CNN, Reuters, and The Associated Press',
-            'Managed FIU Stempel College\'s marketing across brand, editorial, media, social, and advertising',
-            'Coordinated a digital campaign with Huffington Post and Johnson & Johnson that doubled website traffic',
-            'Placed panelists at the Clinton Global Initiative and United Nations Foundation events',
-          ].map((item, i) => (
-            <div key={i} className="flex items-start gap-3">
-              <span className="mt-1.5 w-2 h-2 rounded-full bg-rose-300 flex-shrink-0"></span>
-              <p className="text-sm sm:text-base text-rose-900/80 leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>{item}</p>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-}
-
-/* ─── Portfolio Sub-Nav ─── */
-function PortfolioSubNav({ active, onSelect }) {
-  const items = [
-    { key: 'press', label: 'Press Releases' },
-    { key: 'videos', label: 'Videos' },
-    { key: 'reports', label: 'Annual Reports' },
-    { key: 'media', label: 'Earned Media' }
-  ];
-  return (
-    <div className="w-full flex flex-wrap justify-center md:justify-end gap-2 sm:gap-4 lg:gap-8 mt-6 sm:mt-10 mb-8 sm:mb-12 px-4 sm:px-10">
-      {items.map(item => (
-        <div key={item.key} className="flex flex-col items-center">
-          <button
-            onClick={() => onSelect(item.key)}
-            className={`text-xs sm:text-sm lg:text-base font-extrabold uppercase tracking-wide px-3 sm:px-5 lg:px-8 py-2 sm:py-3 rounded-md transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-rose-300 ${active === item.key ? 'text-rose-700 scale-105' : 'text-amber-900 hover:text-rose-700 hover:scale-105'}`}
-            style={{ minHeight: '40px', cursor: 'pointer', background: 'transparent', boxShadow: 'none', border: 'none' }}
-          >
-            {item.label}
-          </button>
-          {active === item.key && <div className="w-8 h-1 bg-rose-300 mt-1 rounded-full"></div>}
-        </div>
-      ))}
-    </div>
-  );
-}
-
-/* ─── Portfolio Card ─── */
-function PortfolioCard({ image, source, title, description, linkUrl, linkText = 'READ' }) {
-  return (
-    <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-      <div className="img-hover-zoom w-full mb-4">
-        <img src={image} alt={title} className="w-full h-48 object-cover rounded-xl" loading="lazy" />
-      </div>
-      <span className="text-xs font-bold text-amber-800 mb-1.5 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{source}</span>
-      <h3 className="text-base sm:text-lg font-bold text-amber-900 mb-2 leading-snug" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{title}</h3>
-      <p className="text-sm sm:text-base text-rose-900/80 mb-4 flex-1" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>{description}</p>
-      <a
-        href={linkUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 font-bold text-rose-800 transition-all duration-200 hover:text-rose-600 hover:gap-2 focus:outline-none focus:text-rose-600"
-        style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontSize: '0.875rem' }}
-      >
-        {linkText} <span className="text-lg">&#8250;</span>
-      </a>
-    </div>
-  );
-}
-
-/* ─── Media Card (for Earned Media with logos) ─── */
-function MediaCard({ logo, logoAlt, source, title, description, linkUrl }) {
-  return (
-    <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-      <img src={logo} alt={logoAlt} className="h-8 sm:h-10 w-auto mb-3 object-contain" loading="lazy" />
-      <span className="text-xs font-bold text-amber-800 mb-1.5 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{source}</span>
-      <h3 className="text-base sm:text-lg font-bold text-amber-900 mb-2 leading-snug" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>{title}</h3>
-      <p className="text-sm sm:text-base text-rose-900/80 mb-4 flex-1" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>{description}</p>
-      <a
-        href={linkUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center gap-1 font-bold text-rose-800 transition-all duration-200 hover:text-rose-600 hover:gap-2 focus:outline-none focus:text-rose-600"
-        style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontSize: '0.875rem' }}
-      >
-        VIEW COVERAGE <span className="text-lg">&#8250;</span>
-      </a>
-    </div>
-  );
-}
-
-/* ─── Section Header (left side of portfolio sections) ─── */
-function SectionHeader({ title, subtitle, description }) {
-  return (
-    <div className="flex flex-col items-start justify-start w-full md:min-w-[220px] md:max-w-[280px] lg:max-w-[320px] pt-2 md:pt-4 mb-6 md:mb-0">
-      <h2 className="text-2xl sm:text-3xl font-extrabold text-amber-900 mb-2 uppercase">{title}</h2>
-      {subtitle && <span className="text-lg sm:text-xl text-rose-900 mb-2">{subtitle}</span>}
-      {description && (
-        <p className="text-sm sm:text-base text-rose-900/80 mb-4 text-left leading-relaxed" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-          {description}
-        </p>
-      )}
-    </div>
-  );
-}
-
-/* ─── Portfolio Page ─── */
-function PortfolioPage({ activeCategory, onSelectCategory }) {
-  const portfolioContent = {
-    press: (
-      <div className="page-enter w-full flex flex-col md:flex-row items-start max-w-6xl mx-auto mt-4 sm:mt-8 gap-6 md:gap-12 px-4 sm:px-10">
-        <SectionHeader
-          title="Press Releases & Stories"
-          subtitle="Select work"
-          description="From research breakthroughs to community impact, I write press releases and feature stories that translate complex work into compelling narratives that earn coverage and engage audiences."
-        />
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <PortfolioCard
-            image={disasterImg}
-            source="FIU NEWS"
-            title="FIU students get hands-on experience in large-scale disaster response"
-            description="Press release highlighting unique, hands-on graduate degree program."
-            linkUrl="https://news.fiu.edu/2024/fiu-students-get-hands-on-experience-in-large-scale-disaster-response#:~:text=The%20field%20course%20is%20part,management%20and%20humanitarian%20assistance%2Fcoordination"
-          />
-          <PortfolioCard
-            image={socialworkProfImg}
-            source="FIU NEWS"
-            title="Professor named social work educator of the year"
-            description="Feature story on social work professor who was recognized for her contributions to the field."
-            linkUrl="https://news.fiu.edu/2025/social-work-professor-named-educator-of-the-year"
-          />
-          <PortfolioCard
-            image={expertTappedImg}
-            source="FIU NEWS"
-            title="FIU experts tapped for study of possible links between childhood lead exposure and psychiatric diseases"
-            description="Multimillion-dollar investigation aims to explore the effects of the toxic metal on neurons, brain circuitry and behavior."
-            linkUrl="https://news.fiu.edu/2024/researching-psychiatric-disease-risks-linked-to-childhood-lead-exposure"
-          />
-          <PortfolioCard
-            image={majorAgenciesImg}
-            source="PR NEWSWIRE"
-            title="Major Agencies and Networks Support a New PSA that Emphasizes SOS Children's Villages' Dedication to Supporting Vulnerable Children Worldwide"
-            description="Press release about SOS Children's Villages' new PSA campaign and its impact for vulnerable children."
-            linkUrl="https://www.prnewswire.com/news-releases/major-agencies-and-networks-support-a-new-psa-that-emphasizes-sos-childrens-villages-dedication-to-supporting-vulnerable-children-worldwide-300347663.html"
-          />
-          <PortfolioCard
-            image={aspiringMedicalImg}
-            source="FIU NEWS"
-            title="FIU doctoral student dreams of improving people's health, one TV segment at a time"
-            description="Feature story on an FIU doctoral student's inspiring journey to become a medical correspondent."
-            linkUrl="https://news.fiu.edu/2023/fiu-doctoral-student-dreams-of-improving-peoples-health-one-tv-segment-at-a-time"
-          />
-          <PortfolioCard
-            image={celebratingHeroesImg}
-            source="RED CROSS CHAT"
-            title="Celebrating heroes: Meet 6 inspiring earthquake survivors"
-            description="Feature story on earthquake survivors in Mexico that received help from the American Red Cross."
-            linkUrl="https://redcrosschat.org/2018/03/02/celebrating-heroes-meet-6-inspiring-earthquake-survivors/"
-          />
-        </div>
-      </div>
-    ),
-    videos: (
-      <div className="page-enter w-full flex flex-col md:flex-row items-start max-w-6xl mx-auto mt-4 sm:mt-8 gap-6 md:gap-12 px-4 sm:px-10">
-        <SectionHeader
-          title="Videos"
-          subtitle="Select work"
-          description="As the producer for these projects, I managed the production from start to finish. I identified compelling interviewees, secured shoot locations, prepped all participants, and directed on-site logistics. Following the shoot, I guided the post-production process to ensure the final story aligned perfectly with our messaging goals."
-        />
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <YouTubeFacade videoId="m0uM1KTXAeg" title="SOS Children's Villages feature" />
-            <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on young boy supported by SOS Children's Villages</span>
-          </div>
-          <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <YouTubeFacade videoId="2CLX2927mpQ" title="FIU disaster preparedness" />
-            <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on disaster preparedness program at FIU</span>
-          </div>
-          <div className="portfolio-card flex flex-col items-start bg-white/40 rounded-xl p-4 backdrop-blur-sm">
-            <YouTubeFacade videoId="FcaM2s0_5AY" title="FIU researcher feature" />
-            <span className="text-sm sm:text-base text-rose-900 font-bold">Feature video on researcher helping doctors treat hard-to-treat cancers</span>
-          </div>
-        </div>
-      </div>
-    ),
-    reports: (
-      <div className="page-enter w-full flex flex-col md:flex-row items-start max-w-6xl mx-auto mt-4 sm:mt-8 gap-6 md:gap-12 px-4 sm:px-10">
-        <SectionHeader
-          title="Annual Reports"
-          subtitle="Select work"
-          description="As editor at FIU Stempel College, I used the annual Impact Report to highlight the work of our researchers, students, and alumni. I oversaw all aspects of production—from writing and editing to managing designers, leading photoshoots, and coordinating with stakeholders across departments."
-        />
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <PortfolioCard
-            image="https://image.isu.pub/241205140157-7c9412ec698449efdf2ac636674d7584/jpg/page_1_thumb_large.jpg"
-            source="FIU STEMPEL COLLEGE"
-            title="2024 Impact Report"
-            description="Annual report highlighting the achievements, research, and community impact of FIU Stempel College in 2024."
-            linkUrl="https://issuu.com/fiupublications/docs/4965759993_stmpl_2024annualreport-issuu?fr=sYWYwYTYzMjg1Mjk"
-            linkText="VIEW REPORT"
-          />
-          <PortfolioCard
-            image="https://image.isu.pub/231116150455-7d23796d72a7b980ec738b1fd98cdbf8/jpg/page_1_thumb_large.jpg"
-            source="FIU STEMPEL COLLEGE"
-            title="2023 Public Health Impact Report"
-            description="Annual report showcasing the public health initiatives, research, and stories from FIU Stempel College in 2023."
-            linkUrl="https://issuu.com/fiupublications/docs/stmpl_2023_public_health_impact_report_4965759993?fr=sZjdlMzYzMjg1Mjk"
-            linkText="VIEW REPORT"
-          />
-        </div>
-      </div>
-    ),
-    media: (
-      <div className="page-enter w-full flex flex-col md:flex-row items-start max-w-6xl mx-auto mt-4 sm:mt-8 gap-6 md:gap-12 px-4 sm:px-10">
-        <SectionHeader
-          title="Earned Media"
-          subtitle="Select work"
-          description="I've worked closely with media outlets to secure coverage that highlights key programs and initiatives, helping to raise visibility, attract support, and position our work as impactful and newsworthy."
-        />
-        <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <MediaCard
-            logo={nbcLogo} logoAlt="NBC News Logo" source="NBC NEWS"
-            title="Shot During Cookies and Milk: A Syrian Boy's Story"
-            description="Feature on a Syrian boy's journey and recovery after being injured in the conflict, with support from SOS Children's Villages."
-            linkUrl="https://www.nbcnews.com/storyline/syrias-suffering-families/shot-during-cookies-milk-syrian-boys-story-n266356"
-          />
-          <MediaCard
-            logo={nbcLogo} logoAlt="NBC News Logo" source="NBC NEWS"
-            title="Child War Survivor to Syria's Children: Don't Give Up"
-            description="Story of a Liberian war survivor sharing hope with Syrian children, highlighting the impact of SOS Children's Villages."
-            linkUrl="https://www.nbcnews.com/storyline/syrias-children/child-war-survivor-syrias-children-dont-give-n51161"
-          />
-          <MediaCard
-            logo={todayLogo} logoAlt="TODAY Logo" source="TODAY"
-            title="Red Cross urges people to donate blood amid coronavirus concerns"
-            description="Coverage of the Red Cross's call for blood donations during the COVID-19 pandemic, featuring expert commentary."
-            linkUrl="https://www.today.com/health/red-cross-urges-people-donate-blood-amid-coronavirus-concerns-t175665"
-          />
-          <MediaCard
-            logo={nytLogo} logoAlt="New York Times Logo" source="NEW YORK TIMES"
-            title="Hurricane Season 2020: NOAA Predicts Busy Atlantic Season"
-            description="Article on NOAA's forecast for an active hurricane season, with insights from FIU experts on disaster preparedness."
-            linkUrl="https://www.nytimes.com/2020/05/21/climate/hurricane-season-2020-noaa.html"
-          />
-          <MediaCard
-            logo={cbsLogo} logoAlt="CBS News Logo" source="CBS NEWS MIAMI"
-            title="FIU stages largest disaster drill in the state"
-            description="News coverage of FIU's large-scale disaster drill, highlighting the university's leadership in emergency preparedness."
-            linkUrl="https://www.cbsnews.com/miami/news/florida-international-university-stages-largest-disaster-drill-in-the-state/"
-          />
-        </div>
-      </div>
-    )
-  };
-
-  return (
-    <div className="w-full flex flex-col items-center min-h-[70vh]">
-      <PortfolioSubNav active={activeCategory} onSelect={onSelectCategory} />
-      {activeCategory && (
-        <div className="w-full flex flex-col items-center">
-          {portfolioContent[activeCategory]}
-        </div>
-      )}
-    </div>
-  );
-}
-
-/* ─── Home Page ─── */
-function HomePage() {
-  const [show, setShow] = useState(false);
   useEffect(() => {
-    const t = setTimeout(() => setShow(true), 100);
-    return () => clearTimeout(t);
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  useEffect(() => {
+    const topbar = topbarRef.current;
+    const onScroll = () => {
+      if (!topbar) return;
+      if (window.scrollY > 40) topbar.classList.add('scrolled');
+      else topbar.classList.remove('scrolled');
+    };
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  useEffect(() => {
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+    );
+    document.querySelectorAll('.reveal').forEach((el) => io.observe(el));
+    return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const spans = document.querySelectorAll('.hero-headline .row > span');
+    spans.forEach((el, i) => {
+      el.style.transform = 'translateY(110%)';
+      el.style.display = 'inline-block';
+      el.style.transition = `transform 1.2s cubic-bezier(.2,.8,.2,1) ${0.15 + i * 0.1}s`;
+    });
+    requestAnimationFrame(() => {
+      requestAnimationFrame(() => {
+        spans.forEach((el) => { el.style.transform = 'translateY(0)'; });
+      });
+    });
   }, []);
 
   return (
-    <div className="relative w-full flex-1 flex flex-col items-center justify-center overflow-hidden px-6 sm:px-10 py-12 sm:py-0">
-      {/* Subtle gradient overlay at bottom */}
-      <div className="absolute left-0 right-0 bottom-0 h-1/3 z-0 bg-gradient-to-t from-rose-100/60 to-transparent pointer-events-none" />
-
-      {/* Tagline */}
-      <h2
-        className={`text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-light text-amber-900/70 mb-8 sm:mb-12 text-center tracking-wide transition-all duration-1000 z-10 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}
-        style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 100 }}
-      >
-        Storyteller. Communicator. Advocate.
-      </h2>
-
-      {/* Hero images */}
-      <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-6 sm:gap-8 md:gap-12">
-        <img
-          src={stephArcInfield}
-          alt="Stephanie Rendon in field"
-          className={`w-full sm:w-64 md:w-80 lg:w-[28rem] xl:w-[32rem] aspect-square max-w-full object-cover rounded-2xl shadow-2xl transition-all duration-1000 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        />
-        <img
-          src={stephOnCopter}
-          alt="Stephanie Rendon on helicopter"
-          className={`w-full sm:w-64 md:w-80 lg:w-[28rem] xl:w-[32rem] aspect-square max-w-full object-cover rounded-2xl shadow-2xl transition-all duration-1000 delay-200 ${show ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
-        />
-      </div>
-    </div>
-  );
-}
-
-/* ─── Contact Page ─── */
-function ContactPage() {
-  const [submitted, setSubmitted] = useState(false);
-  const [sending, setSending] = useState(false);
-  const [error, setError] = useState(false);
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    setSending(true);
-    setError(false);
-    const form = e.target;
-    const data = new FormData(form);
-    try {
-      const res = await fetch('https://formspree.io/f/mvzvveqn', {
-        method: 'POST',
-        body: data,
-        headers: { 'Accept': 'application/json' }
-      });
-      if (res.ok) {
-        setSubmitted(true);
-      } else {
-        setError(true);
-      }
-    } catch {
-      setError(true);
-    }
-    setSending(false);
-  };
-
-  return (
-    <div className="page-enter flex flex-col items-center justify-center min-h-[60vh] sm:min-h-[70vh] w-full px-6 sm:px-10 py-12">
-      <h2
-        className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-amber-900 mb-4 sm:mb-6"
-        style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}
-      >
-        Let's Connect
-      </h2>
-      <p className="text-base sm:text-lg text-rose-900/70 mb-8 sm:mb-10 text-center max-w-lg" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-        Available for strategic communications consulting, media training, campaign development, and crisis communications.
-      </p>
-
-      {submitted ? (
-        <div className="bg-white/50 backdrop-blur-sm rounded-2xl p-8 sm:p-10 w-full max-w-lg text-center">
-          <p className="text-xl sm:text-2xl text-amber-900 font-bold mb-2" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Thank you!</p>
-          <p className="text-base text-rose-900/70" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>Your message has been sent. I'll be in touch soon.</p>
-        </div>
-      ) : (
-        <>
-        {error && (
-          <div className="bg-red-50 border border-red-200 rounded-xl p-4 w-full max-w-lg mb-4 text-center">
-            <p className="text-red-800 text-sm" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Something went wrong. Please try again or reach out on LinkedIn.</p>
-          </div>
-        )}
-        <form onSubmit={handleSubmit} className="bg-white/50 backdrop-blur-sm rounded-2xl p-6 sm:p-8 w-full max-w-lg flex flex-col gap-4">
-          {/* Honeypot field - hidden from humans, catches bots */}
-          <input type="text" name="_gotcha" style={{ display: 'none' }} tabIndex={-1} autoComplete="off" />
-          <div className="flex flex-col sm:flex-row gap-4">
-            <div className="flex-1 flex flex-col gap-1.5">
-              <label htmlFor="name" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Name</label>
-              <input
-                type="text" id="name" name="name" required
-                className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
-                style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
-                placeholder="Your name"
-              />
-            </div>
-            <div className="flex-1 flex flex-col gap-1.5">
-              <label htmlFor="email" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Email</label>
-              <input
-                type="email" id="email" name="email" required
-                className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
-                style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
-                placeholder="your@email.com"
-              />
-            </div>
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="subject" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Subject</label>
-            <input
-              type="text" id="subject" name="subject"
-              className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all"
-              style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
-              placeholder="What's this about?"
-            />
-          </div>
-          <div className="flex flex-col gap-1.5">
-            <label htmlFor="message" className="text-xs font-bold text-amber-800 uppercase tracking-wider" style={{ fontFamily: 'Roboto, system-ui, sans-serif' }}>Message</label>
-            <textarea
-              id="message" name="message" rows={4} required
-              className="w-full px-4 py-3 rounded-lg bg-white/70 border border-rose-200 text-amber-900 placeholder-amber-900/30 focus:outline-none focus:ring-2 focus:ring-rose-300 focus:border-transparent transition-all resize-none"
-              style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}
-              placeholder="Tell me about your project or how I can help..."
-            ></textarea>
-          </div>
-          <button
-            type="submit"
-            disabled={sending}
-            className="w-full py-3 rounded-full bg-amber-900 text-white font-bold hover:bg-amber-800 transition-colors shadow-lg hover:shadow-xl disabled:opacity-60 disabled:cursor-not-allowed"
-            style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontSize: '0.95rem', cursor: 'pointer', border: 'none' }}
-          >
-            {sending ? 'Sending...' : 'Send Message'}
-          </button>
-        </form>
-        </>
-      )}
-
-      <div className="mt-8">
-        <a
-          href="https://www.linkedin.com/in/rendonstephanie/"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-2 text-amber-900/70 hover:text-rose-700 transition-colors"
-          style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300, fontSize: '0.95rem' }}
-        >
-          <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-          Or connect on LinkedIn
-        </a>
-      </div>
-    </div>
-  );
-}
-
-/* ─── App ─── */
-function App() {
-  const [page, setPage] = useState('home');
-  const [portfolioCategory, setPortfolioCategory] = useState(null);
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-
-  // Dynamic page titles for SEO and UX
-  useEffect(() => {
-    const titles = {
-      home: 'Stephanie Rendon | Strategic Communications & Media Relations',
-      about: 'About | Stephanie Rendon',
-      portfolio: 'Portfolio | Stephanie Rendon',
-      contact: 'Contact | Stephanie Rendon'
-    };
-    document.title = titles[page] || titles.home;
-  }, [page]);
-
-  const navigate = (newPage, category = null) => {
-    setPage(newPage);
-    setPortfolioCategory(category);
-    setMobileMenuOpen(false);
-    window.scrollTo({ top: 0, behavior: 'instant' });
-  };
-
-  return (
-    <div className="w-screen min-h-screen bg-gradient-to-br from-amber-100 via-orange-50 to-rose-100 flex flex-col">
-      {/* Skip to content link for accessibility */}
-      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:bg-white focus:text-amber-900 focus:px-4 focus:py-2 focus:rounded-md focus:shadow-lg focus:font-bold">
-        Skip to content
-      </a>
-      {/* Navigation Bar */}
-      <header className="w-full sticky top-0 z-50 bg-gradient-to-br from-amber-100/95 via-orange-50/95 to-rose-100/95 backdrop-blur-sm">
-        <nav className="w-full flex items-center justify-between px-4 sm:px-10 py-4 sm:py-6">
-          <span
-            className="text-lg sm:text-xl lg:text-2xl font-extrabold tracking-wide text-amber-900 uppercase cursor-pointer hover:text-rose-700 transition-colors"
-            style={{ letterSpacing: '0.05em' }}
-            onClick={() => navigate('home')}
-          >
-            STEPHANIE RENDON
-          </span>
-
-          {/* Desktop nav */}
-          <div className="hidden sm:flex gap-4 lg:gap-10">
-            <NavLink href="#about" onClick={e => { e.preventDefault(); navigate('about'); }} isActive={page === 'about'}>About</NavLink>
-            <NavLink href="#portfolio" onClick={e => { e.preventDefault(); navigate('portfolio', 'press'); }} isActive={page === 'portfolio'}>Portfolio</NavLink>
-            <NavLink href="#contact" onClick={e => { e.preventDefault(); navigate('contact'); }} isActive={page === 'contact'}>Contact</NavLink>
-          </div>
-
-          {/* Mobile hamburger */}
-          <MobileMenuButton isOpen={mobileMenuOpen} onClick={() => setMobileMenuOpen(!mobileMenuOpen)} />
+    <>
+      <header className="topbar" id="topbar" ref={topbarRef}>
+        <a href="#top" className="brand" onClick={() => setMenuOpen(false)}><span className="dot"></span> Stephanie Rendon</a>
+        <nav className="nav">
+          <a href="#about">About</a>
+          <a href="#work">Selected Work</a>
+          <a href="#services">Services</a>
+          <a href="#writing">Videos</a>
+          <a href="#press">Press</a>
+          <a href="#contact" className="cta">Work with me</a>
         </nav>
-
-        {/* Mobile menu dropdown */}
-        {mobileMenuOpen && (
-          <div className="sm:hidden flex flex-col items-center gap-2 pb-4 border-b border-rose-200">
-            <NavLink href="#about" onClick={e => { e.preventDefault(); navigate('about'); }} isActive={page === 'about'}>About</NavLink>
-            <NavLink href="#portfolio" onClick={e => { e.preventDefault(); navigate('portfolio', 'press'); }} isActive={page === 'portfolio'}>Portfolio</NavLink>
-            <NavLink href="#contact" onClick={e => { e.preventDefault(); navigate('contact'); }} isActive={page === 'contact'}>Contact</NavLink>
-          </div>
-        )}
-
-        <div className="w-full flex justify-center px-4 sm:px-0">
-          <div className="border-t-2 border-t-rose-200/60 w-full max-w-6xl"></div>
-        </div>
+        <button
+          type="button"
+          className={`nav-toggle${menuOpen ? ' open' : ''}`}
+          aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+          aria-expanded={menuOpen}
+          onClick={() => setMenuOpen((v) => !v)}
+        >
+          <span></span><span></span>
+        </button>
       </header>
 
-      {/* Page content */}
-      <main id="main-content" className="flex-1 flex flex-col">
-        {page === 'home' && <HomePage />}
-        {page === 'about' && <AboutPage />}
-        {page === 'portfolio' && (
-          <div className="pb-16 sm:pb-24 w-full">
-            <PortfolioPage activeCategory={portfolioCategory} onSelectCategory={setPortfolioCategory} />
-          </div>
-        )}
-        {page === 'contact' && <ContactPage />}
-      </main>
+      <div className={`mobile-menu${menuOpen ? ' open' : ''}`} aria-hidden={!menuOpen}>
+        <nav className="mobile-menu-nav" onClick={() => setMenuOpen(false)}>
+          <a href="#about">About</a>
+          <a href="#work">Selected Work</a>
+          <a href="#services">Services</a>
+          <a href="#writing">Videos</a>
+          <a href="#press">Press</a>
+          <a href="#contact">Work with me</a>
+        </nav>
+        <div className="mobile-menu-foot">New York · Remote · EN · ES</div>
+      </div>
 
-      {/* Footer */}
-      <footer className="w-full text-center py-6 text-sm text-amber-900/40" style={{ fontFamily: 'Roboto, system-ui, sans-serif', fontWeight: 300 }}>
-        &copy; {new Date().getFullYear()} Stephanie Rendon
+      <section className="hero" id="top">
+        <div className="hero-grain"></div>
+        <div className="hero-inner">
+          <div className="hero-meta">
+            <span>Practice 2012 — 2026</span>
+            <span>Based in New York City</span>
+            <span>EN · ES</span>
+          </div>
+
+          <h1 className="hero-headline">
+            {HERO_LINES.map((parts, i) => (
+              <span key={i} className="row"><span>{renderParts(parts)}</span></span>
+            ))}
+          </h1>
+
+          <div className="hero-bottom">
+            <p>Fourteen years shaping narratives for nonprofits, NGOs, and education organizations — turning complex, human stories into coverage that moves people to act.</p>
+            <div className="hero-status">
+              <div className="available"><span className="pulse"></span> Available for freelance consulting</div>
+              <div style={{ marginTop: '10px' }}>New York · Remote · Bilingual EN/ES</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div className="marquee" aria-hidden="true">
+        <div className="marquee-track">
+          {[...MARQUEE_OUTLETS, ...MARQUEE_OUTLETS].map((o, i) => (
+            <span key={i}>
+              <img
+                src={o.logo}
+                alt={o.alt}
+                style={{ transform: `scale(${o.scale ?? 1})`, transformOrigin: 'center' }}
+              />
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <section className="about" id="about">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">01 — About</div>
+            <h2>A communicator for the organizations <em>building the world we need.</em></h2>
+          </div>
+
+          <div className="about-grid">
+            <div className="about-portrait reveal">
+              <img src={stephaniePortrait} alt="Stephanie Rendon" />
+              <div className="portrait-caption">
+                <span>Stephanie Rendon</span>
+                <span>NYC · 2026</span>
+              </div>
+            </div>
+
+            <div className="about-body reveal">
+              <p className="lead">I'm Stephanie Rendon — a bilingual communications leader with <em>14+ years</em> shaping narratives for mission-driven organizations.</p>
+              <p>I'm currently Head of Marketing & Communications at School in the Square, a PreK–12 public charter network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model.</p>
+              <p>Before that, I led brand strategy, media relations, and editorial at FIU's Robert Stempel College of Public Health & Social Work, and shaped national communications for the American Red Cross and SOS Children's Villages.</p>
+              <p>I specialize in brand strategy, community engagement, crisis communications, and turning complex stories into coverage that moves people to act.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="work" id="work">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">02 — Selected Work</div>
+            <h2>Campaigns, crises, and <em>coverage</em> — across sectors that matter.</h2>
+          </div>
+
+          <div className="work-list">
+            {WORK_ITEMS.map((w) => (
+              <a
+                key={w.num}
+                href={w.href}
+                target="_blank"
+                rel="noopener"
+                className="work-item"
+              >
+                <div className="work-num">{w.num}</div>
+                <div className="work-title">{renderParts(w.titleParts)}</div>
+                <div className="work-sector">{w.sector}</div>
+                <div className="work-tags">{w.tags.map((t) => <span key={t}>{t}</span>)}</div>
+                <div className="work-year">{w.year}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="feature" id="feature">
+        <div className="feature-inner">
+          <div className="feature-image reveal" style={{ padding: 0, background: '#000' }}>
+            <img
+              src={disasterImg}
+              alt="FIU disaster response field course"
+              style={{ position: 'absolute', inset: 0, width: '100%', height: '100%', objectFit: 'cover' }}
+            />
+            <span style={{ position: 'relative', zIndex: 1, color: 'oklch(0.965 0.012 85 / 0.9)', textShadow: '0 1px 12px rgba(0,0,0,.6)' }}>Featured · Press Release</span>
+            <span style={{ position: 'relative', zIndex: 1, color: 'oklch(0.965 0.012 85 / 0.9)', textShadow: '0 1px 12px rgba(0,0,0,.6)' }}>FIU · 2024</span>
+          </div>
+
+          <div className="feature-content reveal">
+            <div className="eyebrow">Featured Case Study</div>
+            <h3>How a grad program got <em>national</em> press for being hands-on.</h3>
+            <div className="feature-pull">A dense, academic field course — a multi-agency disaster drill run across a Florida campus — turned into the kind of press release that reporters actually picked up. It ran in FIU News and was syndicated through regional outlets, including CBS News Miami.</div>
+
+            <div className="feature-metrics">
+              <div className="m"><div className="v">CBS</div><div className="l">News Miami<br />coverage</div></div>
+              <div className="m"><div className="v">1<em>st</em></div><div className="l">State's largest<br />disaster drill</div></div>
+              <div className="m"><div className="v">Multi-<em>agency</em></div><div className="l">Field<br />coordination</div></div>
+            </div>
+
+            <a href="https://news.fiu.edu/2024/fiu-students-get-hands-on-experience-in-large-scale-disaster-response" target="_blank" rel="noopener" className="link-arrow">Read the release →</a>
+          </div>
+        </div>
+      </section>
+
+      <section className="services" id="services">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">03 — Services</div>
+            <h2>What I bring to <em>mission-driven teams.</em></h2>
+          </div>
+
+          <div className="services-grid reveal">
+            {SERVICES.map((s) => (
+              <div key={s.num} className="service">
+                <div className="s-num">{s.num}</div>
+                <h4>{s.title}</h4>
+                <p>{s.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="press" id="press">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">04 — In the Press</div>
+            <h2>Where the stories <em>landed.</em></h2>
+          </div>
+
+          <div className="press-grid reveal">
+            {PRESS_ITEMS.map((p, i) => (
+              <a key={i} href={p.href} target="_blank" rel="noopener" className="press-item">
+                <div className="press-logo" aria-label={p.alt}>
+                  <img src={p.logo} alt={p.alt} />
+                </div>
+                <div className="press-headline">{p.headline}</div>
+                <div className="press-meta"><span>{p.metaLeft}</span><span>View ↗</span></div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="writing" id="writing">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">05 — Video Production</div>
+            <h2>Produced <em>end-to-end</em> — from interview to edit.</h2>
+          </div>
+
+          <div className="writing-list reveal">
+            {VIDEOS.map((v, i) => (
+              <a key={i} href={v.href} target="_blank" rel="noopener" className="writing-row">
+                <div className="writing-date">{v.date}</div>
+                <div className="writing-title">{renderParts(v.titleParts)}</div>
+                <div className="writing-publication">{v.publication}</div>
+                <div className="writing-category">{v.category}</div>
+                <div className="writing-length">Watch ↗</div>
+              </a>
+            ))}
+          </div>
+          <p style={{ marginTop: '28px', fontFamily: 'var(--serif)', fontSize: '15px', color: 'oklch(0.965 0.012 85 / 0.65)', maxWidth: '64ch' }}>
+            As producer: identified interviewees, secured locations, prepped participants, directed on-site logistics, and guided post‑production to keep every cut on-message.
+          </p>
+        </div>
+      </section>
+
+      <section className="speaking" id="speaking">
+        <div className="section-inner">
+          <div className="section-head reveal">
+            <div className="num">06 — Annual Reports</div>
+            <h2>Edited, written, and <em>produced.</em></h2>
+          </div>
+
+          <div className="speaking-grid speaking-grid-2 reveal">
+            {ANNUAL_REPORTS.map((a) => (
+              <a key={a.title} href={a.href} target="_blank" rel="noopener" className="speaking-card">
+                <div className="speaking-date">{a.date}</div>
+                <h4>{a.title}</h4>
+                <p>{a.body}</p>
+                <div className="speaking-venue">View on Issuu ↗</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="contact" id="contact">
+        <div className="contact-inner">
+          <div className="eyebrow" style={{ color: 'var(--moss)', marginBottom: '32px' }}>07 — Contact</div>
+          <h2>Let's tell a story <br />worth <em>telling well.</em></h2>
+
+          <div className="contact-grid">
+            <div className="contact-col">
+              <h5>Freelance & consulting</h5>
+              <a href="mailto:hello@stephanierendon.com" className="big">hello@stephanierendon.com</a>
+              <div className="contact-links">
+                <a href="https://www.linkedin.com/in/rendonstephanie/">LinkedIn</a>
+                <a href="#">Download CV</a>
+                <a href="#">Download media kit</a>
+              </div>
+            </div>
+
+            <div className="contact-col"></div>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <div className="foot-inner">
+          <div>© 2026 Stephanie Rendon</div>
+          <div>New York City · EN · ES</div>
+          <div>Site, 2026 Edition</div>
+        </div>
       </footer>
-    </div>
+    </>
   );
 }
-
-export default App;
