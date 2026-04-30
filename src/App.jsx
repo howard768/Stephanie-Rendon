@@ -34,27 +34,30 @@ const MARQUEE_OUTLETS = [
 
 const WORK_ITEMS = [
   {
-    href: 'https://news.fiu.edu/2024/fiu-students-get-hands-on-experience-in-large-scale-disaster-response',
+    href: '/work/fiu-disaster-drill/',
+    internal: true,
     num: '01',
     titleParts: [{ em: 'Disaster' }, ' Response Field Course'],
-    sector: "Press release translating FIU's hands-on graduate disaster-management program into a story the public could feel.",
-    tags: ['Press Release', 'Higher Ed'],
+    sector: "Press release translating FIU's hands-on graduate disaster-management program into a story the public could feel — picked up by CBS News Miami.",
+    tags: ['Case Study', 'Higher Ed'],
     year: 'FIU · 2024',
   },
   {
-    href: 'https://www.prnewswire.com/news-releases/major-agencies-and-networks-support-a-new-psa-that-emphasizes-sos-childrens-villages-dedication-to-supporting-vulnerable-children-worldwide-300347663.html',
+    href: '/work/sos-villages/',
+    internal: true,
     num: '02',
-    titleParts: ['Major Agencies Back ', { em: 'SOS Villages' }, ' PSA'],
-    sector: "National press release rallying major agencies and networks behind SOS Children's Villages' PSA for vulnerable kids.",
-    tags: ['NGO', 'Press Release', 'National'],
-    year: 'PR Newswire',
+    titleParts: [{ em: 'SOS Villages' }, ' Doubled Web Traffic'],
+    sector: "Bilingual integrated campaign with HuffPost and Johnson & Johnson that doubled SOS Children's Villages' web traffic.",
+    tags: ['Case Study', 'NGO', 'National'],
+    year: '2014–2016',
   },
   {
-    href: 'https://redcrosschat.org/2018/03/02/celebrating-heroes-meet-6-inspiring-earthquake-survivors/',
+    href: '/work/red-cross/',
+    internal: true,
     num: '03',
     titleParts: ['Celebrating ', { em: 'Heroes' }, " of Mexico's Quake"],
-    sector: 'Feature story on six earthquake survivors in Mexico supported by the American Red Cross.',
-    tags: ['Red Cross', 'Feature', 'Crisis'],
+    sector: 'Feature on six earthquake survivors in Mexico — written to lead with resilience, not victimhood. Signature editorial for the American Red Cross.',
+    tags: ['Case Study', 'Red Cross', 'Crisis'],
     year: '2018',
   },
   {
@@ -341,8 +344,7 @@ export default function App() {
               <a
                 key={w.num}
                 href={w.href}
-                target="_blank"
-                rel="noopener"
+                {...(w.internal ? {} : { target: '_blank', rel: 'noopener' })}
                 className="work-item"
               >
                 <div className="work-num">{w.num}</div>
@@ -379,7 +381,7 @@ export default function App() {
               <div className="m"><div className="v">Multi-<em>agency</em></div><div className="l">Field<br />coordination</div></div>
             </div>
 
-            <a href="https://news.fiu.edu/2024/fiu-students-get-hands-on-experience-in-large-scale-disaster-response" target="_blank" rel="noopener" className="link-arrow">Read the release →</a>
+            <a href="/work/fiu-disaster-drill/" className="link-arrow">Read the case study →</a>
           </div>
         </div>
       </section>
