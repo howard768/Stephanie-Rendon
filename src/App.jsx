@@ -242,6 +242,7 @@ export default function App() {
           <a href="#services">Services</a>
           <a href="#writing">Videos</a>
           <a href="#press">Press</a>
+          <a href="/es/">ES</a>
           <a href="#contact" className="cta">Work with me</a>
         </nav>
         <button

@@ -1,13 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://stephanierendon.com/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/"/>
   </url>
   <url>
     <loc>https://stephanierendon.com/work/sos-villages/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/work/sos-villages/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/work/sos-villages/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/work/sos-villages/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/work/sos-villages/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
@@ -17,9 +39,27 @@
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/work/fiu-disaster-drill/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/work/fiu-disaster-drill/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/work/fiu-disaster-drill/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/work/fiu-disaster-drill/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
   </url>
   <url>
     <loc>https://stephanierendon.com/work/red-cross/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/work/red-cross/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/work/red-cross/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/work/red-cross/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/work/red-cross/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.8</priority>
@@ -29,9 +69,27 @@
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/brand-narrative-strategy/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/brand-narrative-strategy/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/brand-narrative-strategy/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/brand-narrative-strategy/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://stephanierendon.com/services/media-relations/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/media-relations/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/media-relations/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/media-relations/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/media-relations/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -41,9 +99,27 @@
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/crisis-communications/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/crisis-communications/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/crisis-communications/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/crisis-communications/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://stephanierendon.com/services/community-engagement/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/community-engagement/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/community-engagement/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/community-engagement/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/community-engagement/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
@@ -53,15 +129,42 @@
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/editorial-content/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/editorial-content/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/editorial-content/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/editorial-content/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://stephanierendon.com/services/bilingual-campaigns/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>yearly</changefreq>
     <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/services/bilingual-campaigns/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/services/bilingual-campaigns/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/services/bilingual-campaigns/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/services/bilingual-campaigns/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
   </url>
   <url>
     <loc>https://stephanierendon.com/blog/bilingual-not-translated/</loc>
+    <lastmod>2026-04-30</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://stephanierendon.com/blog/bilingual-not-translated/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://stephanierendon.com/es/blog/bilingual-not-translated/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://stephanierendon.com/blog/bilingual-not-translated/"/>
+  </url>
+  <url>
+    <loc>https://stephanierendon.com/es/blog/bilingual-not-translated/</loc>
     <lastmod>2026-04-30</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
