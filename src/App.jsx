@@ -1,8 +1,8 @@
 import { useEffect, useRef, useState } from 'react';
 import './index.css';
 
-import stephaniePortrait from './assets/stephanie.png';
-import disasterImg from './assets/disaster-management.jpeg';
+import stephaniePortrait from './assets/stephanie.webp';
+import disasterImg from './assets/disaster-management.webp';
 import logoNbc from './assets/logo-nbc.svg';
 import logoToday from './assets/logo-today.svg';
 import logoNyt from './assets/logo-nyt.svg';
@@ -87,12 +87,12 @@ const WORK_ITEMS = [
 ];
 
 const SERVICES = [
-  { num: 'S · 01', title: 'Brand & Narrative Strategy', body: 'Positioning, voice, and story architecture for organizations whose work is too complex for the category default.' },
-  { num: 'S · 02', title: 'Media Relations', body: 'Earned-media strategy, pitching, spokesperson prep, and relationships that make reporters call you back.' },
-  { num: 'S · 03', title: 'Crisis Communications', body: 'Rapid-response playbooks, bilingual family and stakeholder comms, and on-the-ground coordination when it counts.' },
-  { num: 'S · 04', title: 'Community Engagement', body: 'Programs that treat families, staff, and neighbors as audiences whose trust is earned — not assumed.' },
-  { num: 'S · 05', title: 'Editorial & Content', body: 'Publications, annual reports, long-form storytelling, and thought leadership that actually gets read.' },
-  { num: 'S · 06', title: 'Bilingual (EN/ES) Campaigns', body: 'Campaigns built bilingual from the start — not translated at the end. Cultural fluency, not just linguistic.' },
+  { num: 'S · 01', href: '/services/brand-narrative-strategy/', title: 'Brand & Narrative Strategy', body: 'Positioning, voice, and story architecture for organizations whose work is too complex for the category default.' },
+  { num: 'S · 02', href: '/services/media-relations/', title: 'Media Relations', body: 'Earned-media strategy, pitching, spokesperson prep, and relationships that make reporters call you back.' },
+  { num: 'S · 03', href: '/services/crisis-communications/', title: 'Crisis Communications', body: 'Rapid-response playbooks, bilingual family and stakeholder comms, and on-the-ground coordination when it counts.' },
+  { num: 'S · 04', href: '/services/community-engagement/', title: 'Community Engagement', body: 'Programs that treat families, staff, and neighbors as audiences whose trust is earned — not assumed.' },
+  { num: 'S · 05', href: '/services/editorial-content/', title: 'Editorial & Content', body: 'Publications, annual reports, long-form storytelling, and thought leadership that actually gets read.' },
+  { num: 'S · 06', href: '/services/bilingual-campaigns/', title: 'Bilingual (EN/ES) Campaigns', body: 'Campaigns built bilingual from the start — not translated at the end. Cultural fluency, not just linguistic.' },
 ];
 
 const PRESS_ITEMS = [
@@ -395,11 +395,11 @@ export default function App() {
 
           <div className="services-grid reveal">
             {SERVICES.map((s) => (
-              <div key={s.num} className="service">
+              <a key={s.num} href={s.href} className="service">
                 <div className="s-num">{s.num}</div>
                 <h4>{s.title}</h4>
                 <p>{s.body}</p>
-              </div>
+              </a>
             ))}
           </div>
         </div>
