@@ -487,7 +487,13 @@ export default function App() {
               </div>
             </div>
 
-            <div className="contact-col"></div>
+            <div className="contact-col">
+              <h5>Or audit your own work</h5>
+              <a href="/tools/bilingual-comms-audit/" className="big">Bilingual Comms Audit →</a>
+              <div className="contact-links" style={{ marginTop: '12px' }}>
+                <span style={{ fontSize: '14px', color: 'oklch(0.965 0.012 85 / 0.6)' }}>10 questions · 3 minutes · free · no login</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
