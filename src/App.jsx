@@ -38,7 +38,7 @@ const WORK_ITEMS = [
     internal: true,
     num: '01',
     titleParts: [{ em: 'Disaster' }, ' Response Field Course'],
-    sector: "Press release translating FIU's hands-on graduate disaster-management program into a story the public could feel — picked up by CBS News Miami.",
+    sector: "Press release translating FIU's hands-on graduate disaster-management program into a story the public could feel. Picked up by CBS News Miami.",
     tags: ['Case Study', 'Higher Ed'],
     year: 'FIU · 2024',
   },
@@ -56,7 +56,7 @@ const WORK_ITEMS = [
     internal: true,
     num: '03',
     titleParts: ['Celebrating ', { em: 'Heroes' }, " of Mexico's Quake"],
-    sector: 'Feature on six earthquake survivors in Mexico — written to lead with resilience, not victimhood. Signature editorial for the American Red Cross.',
+    sector: 'Feature on six earthquake survivors in Mexico, written to lead with resilience, not victimhood. Signature editorial for the American Red Cross.',
     tags: ['Case Study', 'Red Cross', 'Crisis'],
     year: '2018',
   },
@@ -64,7 +64,7 @@ const WORK_ITEMS = [
     href: 'https://news.fiu.edu/2024/researching-psychiatric-disease-risks-linked-to-childhood-lead-exposure',
     num: '04',
     titleParts: ['Childhood Lead & ', { em: 'Psychiatric' }, ' Disease'],
-    sector: 'Multimillion-dollar study framed for a general audience — neurons, brain circuitry, behavior.',
+    sector: 'Multimillion-dollar study framed for a general audience (neurons, brain circuitry, behavior).',
     tags: ['Research', 'Public Health'],
     year: 'FIU · 2024',
   },
@@ -90,16 +90,16 @@ const SERVICES = [
   { num: 'S · 01', href: '/services/brand-narrative-strategy/', title: 'Brand & Narrative Strategy', body: 'Positioning, voice, and story architecture for organizations whose work is too complex for the category default.' },
   { num: 'S · 02', href: '/services/media-relations/', title: 'Media Relations', body: 'Earned-media strategy, pitching, spokesperson prep, and relationships that make reporters call you back.' },
   { num: 'S · 03', href: '/services/crisis-communications/', title: 'Crisis Communications', body: 'Rapid-response playbooks, bilingual family and stakeholder comms, and on-the-ground coordination when it counts.' },
-  { num: 'S · 04', href: '/services/community-engagement/', title: 'Community Engagement', body: 'Programs that treat families, staff, and neighbors as audiences whose trust is earned — not assumed.' },
+  { num: 'S · 04', href: '/services/community-engagement/', title: 'Community Engagement', body: 'Programs that treat families, staff, and neighbors as audiences whose trust is earned, not assumed.' },
   { num: 'S · 05', href: '/services/editorial-content/', title: 'Editorial & Content', body: 'Publications, annual reports, long-form storytelling, and thought leadership that actually gets read.' },
-  { num: 'S · 06', href: '/services/bilingual-campaigns/', title: 'Bilingual (EN/ES) Campaigns', body: 'Campaigns built bilingual from the start — not translated at the end. Cultural fluency, not just linguistic.' },
+  { num: 'S · 06', href: '/services/bilingual-campaigns/', title: 'Bilingual (EN/ES) Campaigns', body: 'Campaigns built bilingual from the start, not translated at the end. Cultural fluency, not just linguistic.' },
 ];
 
 const PRESS_ITEMS = [
   {
     href: 'https://www.nbcnews.com/storyline/syrias-suffering-families/shot-during-cookies-milk-syrian-boys-story-n266356',
     logo: logoNbc, alt: 'NBC News',
-    headline: "Shot During Cookies and Milk — a Syrian boy's story, supported by SOS Children's Villages.",
+    headline: "Shot During Cookies and Milk: a Syrian boy's story, supported by SOS Children's Villages.",
     metaLeft: 'SOS · NGO',
   },
   {
@@ -117,7 +117,7 @@ const PRESS_ITEMS = [
   {
     href: 'https://www.nytimes.com/2020/05/21/climate/hurricane-season-2020-noaa.html',
     logo: logoNyt, alt: 'The New York Times',
-    headline: 'NOAA predicts a busy Atlantic season — with FIU experts on preparedness.',
+    headline: 'NOAA predicts a busy Atlantic season, with FIU experts on preparedness.',
     metaLeft: 'FIU · Climate',
   },
   {
@@ -129,7 +129,7 @@ const PRESS_ITEMS = [
   {
     href: 'https://www.huffpost.com/entry/why-it-is-important-to-he_b_7052246',
     logo: logoHuffpost, alt: 'HuffPost',
-    headline: "Why it is important to help children in need — part of the J&J / HuffPost partnership that doubled SOS Children's Villages' web traffic.",
+    headline: "Why it is important to help children in need (part of the J&J / HuffPost partnership that doubled SOS Children's Villages' web traffic).",
     metaLeft: 'SOS · NGO',
   },
 ];
@@ -169,7 +169,7 @@ const ANNUAL_REPORTS = [
     href: 'https://issuu.com/fiupublications/docs/stmpl_2023_public_health_impact_report_4965759993',
     date: 'FIU Stempel College · 2023',
     title: '2023 Public Health Impact Report',
-    body: "Showcasing public health research, programs, and community stories — a year's worth of work distilled for donors and peers.",
+    body: "Showcasing public health research, programs, and community stories. A year's worth of work distilled for donors and peers.",
   },
 ];
 
@@ -272,7 +272,7 @@ export default function App() {
         <div className="hero-grain"></div>
         <div className="hero-inner">
           <div className="hero-meta">
-            <span>Practice 2012 — 2026</span>
+            <span>Practice 2012 to 2026</span>
             <span>Based in New York City</span>
             <span>EN · ES</span>
           </div>
@@ -284,7 +284,7 @@ export default function App() {
           </h1>
 
           <div className="hero-bottom">
-            <p>Fourteen years shaping narratives for nonprofits, NGOs, and education organizations — turning complex, human stories into coverage that moves people to act.</p>
+            <p>Fourteen years shaping narratives for nonprofits, NGOs, and education organizations, turning complex, human stories into coverage that moves people to act.</p>
             <div className="hero-status">
               <div className="available"><span className="pulse"></span> Available for freelance consulting</div>
               <div style={{ marginTop: '10px' }}>New York · Remote · Bilingual EN/ES</div>
@@ -310,7 +310,7 @@ export default function App() {
       <section className="about" id="about">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">01 — About</div>
+            <div className="num">01 · About</div>
             <h2>A communicator for the organizations <em>building the world we need.</em></h2>
           </div>
 
@@ -324,8 +324,8 @@ export default function App() {
             </div>
 
             <div className="about-body reveal">
-              <p className="lead">I'm Stephanie Rendon — a bilingual communications leader with <em>14+ years</em> shaping narratives for mission-driven organizations.</p>
-              <p>I'm currently Head of Marketing & Communications at School in the Square, a PreK–12 public charter network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model.</p>
+              <p className="lead">I'm Stephanie Rendon, a bilingual (EN/ES) communications leader with <em>14+ years</em> shaping narratives for mission-driven organizations.</p>
+              <p>I'm currently Associate Director of Communications, School in the Square, a PreK–12 public charter network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model.</p>
               <p>Before that, I led brand strategy, media relations, and editorial at FIU's Robert Stempel College of Public Health & Social Work, and shaped national communications for the American Red Cross and SOS Children's Villages.</p>
               <p>I specialize in brand strategy, community engagement, crisis communications, and turning complex stories into coverage that moves people to act.</p>
             </div>
@@ -336,8 +336,8 @@ export default function App() {
       <section className="work" id="work">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">02 — Selected Work</div>
-            <h2>Campaigns, crises, and <em>coverage</em> — across sectors that matter.</h2>
+            <div className="num">02 · Selected Work</div>
+            <h2>Campaigns, crises, and <em>coverage</em>, across sectors that matter.</h2>
           </div>
 
           <div className="work-list">
@@ -374,7 +374,7 @@ export default function App() {
           <div className="feature-content reveal">
             <div className="eyebrow">Featured Case Study</div>
             <h3>How a grad program got <em>national</em> press for being hands-on.</h3>
-            <div className="feature-pull">A dense, academic field course — a multi-agency disaster drill run across a Florida campus — turned into the kind of press release that reporters actually picked up. It ran in FIU News and was syndicated through regional outlets, including CBS News Miami.</div>
+            <div className="feature-pull">A dense, academic field course (a multi-agency disaster drill run across a Florida campus) turned into the kind of press release that reporters actually picked up. It ran in FIU News and was syndicated through regional outlets, including CBS News Miami.</div>
 
             <div className="feature-metrics">
               <div className="m"><div className="v">CBS</div><div className="l">News Miami<br />coverage</div></div>
@@ -390,7 +390,7 @@ export default function App() {
       <section className="services" id="services">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">03 — Services</div>
+            <div className="num">03 · Services</div>
             <h2>What I bring to <em>mission-driven teams.</em></h2>
           </div>
 
@@ -409,7 +409,7 @@ export default function App() {
       <section className="press" id="press">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">04 — In the Press</div>
+            <div className="num">04 · In the Press</div>
             <h2>Where the stories <em>landed.</em></h2>
           </div>
 
@@ -430,8 +430,8 @@ export default function App() {
       <section className="writing" id="writing">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">05 — Video Production</div>
-            <h2>Produced <em>end-to-end</em> — from interview to edit.</h2>
+            <div className="num">05 · Video Production</div>
+            <h2>Produced <em>end-to-end</em>, from interview to edit.</h2>
           </div>
 
           <div className="writing-list reveal">
@@ -454,7 +454,7 @@ export default function App() {
       <section className="speaking" id="speaking">
         <div className="section-inner">
           <div className="section-head reveal">
-            <div className="num">06 — Annual Reports</div>
+            <div className="num">06 · Annual Reports</div>
             <h2>Edited, written, and <em>produced.</em></h2>
           </div>
 
@@ -473,7 +473,7 @@ export default function App() {
 
       <section className="contact" id="contact">
         <div className="contact-inner">
-          <div className="eyebrow" style={{ color: 'var(--moss)', marginBottom: '32px' }}>07 — Contact</div>
+          <div className="eyebrow" style={{ color: 'var(--moss)', marginBottom: '32px' }}>07 · Contact</div>
           <h2>Let's tell a story <br />worth <em>telling well.</em></h2>
 
           <div className="contact-grid">
