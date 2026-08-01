@@ -325,7 +325,7 @@ export default function App() {
 
             <div className="about-body reveal">
               <p className="lead">I'm Stephanie Rendon, a bilingual (EN/ES) communications leader with <em>14+ years</em> shaping narratives for mission-driven organizations.</p>
-              <p>I'm currently Head of Marketing & Communications, School in the Square, the sole marketing and communications leader for the entire PreK–12 dual-language network, a public charter network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model.</p>
+              <p>I'm currently Head of Marketing & Communications at School in the Square, where I build and run the marketing and communications function for the entire PreK–12 dual-language network, a public charter network in Washington Heights and Inwood serving 800+ students through a dual-language English/Spanish model.</p>
               <p>Before that, I led brand strategy, media relations, and editorial at FIU's Robert Stempel College of Public Health & Social Work, and shaped national communications for the American Red Cross and SOS Children's Villages.</p>
               <p>I specialize in brand strategy, community engagement, crisis communications, and turning complex stories into coverage that moves people to act.</p>
             </div>
