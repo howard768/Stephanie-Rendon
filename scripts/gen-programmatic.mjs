@@ -59,11 +59,11 @@ const PAGES = [
     metaDesc: 'Bilingual (EN/ES) program communications, family-facing materials, and donor messaging for family services nonprofits whose audiences are predominantly Spanish-speaking.',
     lede: 'Family services nonprofits — child welfare, foster care, family preservation, parent support — work with audiences whose first language is often Spanish. Communications that treat Spanish as a translation step miss the families they are supposed to serve.',
     sections: [
-      { h2: 'The challenge', body: '<p>Family services communications carry weight that other nonprofit comms do not. A foster placement update in awkward Spanish reads as cold to the family receiving it. A parenting class invitation translated badly never converts to attendance. A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <em>about</em> the community more than it talks <em>to</em> it.</p>' },
+      { h2: 'The challenge', body: '<p>Family services communications carry weight that other nonprofit comms do not. A foster placement update in awkward Spanish reads as cold to the family receiving it. A parenting class invitation translated badly never converts to attendance. A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <span>about</span> the community more than it talks <span>to</span> it.</p>' },
       { h2: 'What I deliver', body: '<ul><li><strong>Bilingual program and family communications.</strong> Updates, invitations, intake forms, post-program follow-up.</li><li><strong>Bilingual donor communications.</strong> Annual appeals, year-end campaigns, major-gift cultivation that respects the bilingual character of the work.</li><li><strong>Editorial: bilingual annual reports and impact stories.</strong> Built in both languages from the brief.</li><li><strong>Bilingual training materials</strong> for caseworkers and family-facing staff.</li></ul>' },
       { h2: 'Where the work connects to my career', body: '<p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>' },
     ],
-    pullquote: '"A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <em>about</em> the community more than it talks <em>to</em> it."',
+    pullquote: '"A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <span>about</span> the community more than it talks <span>to</span> it."',
     related: ['sos-villages', 'red-cross'],
   },
   {
@@ -307,11 +307,11 @@ const PAGES = [
     metaDesc: 'Community engagement and member communications for immigrant services nonprofits. Bilingual at the brief stage, with cultural fluency, not as a translation step.',
     lede: 'Immigrant services orgs have to earn community trust in a context where the communities they serve have earned reasons to distrust institutions. Communications that read as performative — translated, generic, or disconnected from the audience\'s lived experience — work against the mission.',
     sections: [
-      { h2: 'The challenge', body: '<p>The communities immigrant services nonprofits work with are accustomed to communications that talk <em>about</em> them more than <em>to</em> them. The standard playbook of English-first content with Spanish translation appended does not survive that scrutiny.</p>' },
+      { h2: 'The challenge', body: '<p>The communities immigrant services nonprofits work with are accustomed to communications that talk <span>about</span> them more than <span>to</span> them. The standard playbook of English-first content with Spanish translation appended does not survive that scrutiny.</p>' },
       { h2: 'What I deliver', body: '<ul><li><strong>Member, family, and community communications systems.</strong> Built bilingual from the brief stage with cultural fluency in both languages.</li><li><strong>Outreach program design.</strong> Know-your-rights events, citizenship workshops, family services briefings.</li><li><strong>Bilingual editorial</strong> for member-facing publications, annual reports, and impact storytelling.</li><li><strong>Crisis-readiness</strong> for ICE enforcement events, policy changes, and rapid-response advocacy.</li></ul>' },
       { h2: 'Where the work connects to my career', body: '<p>Family-services work at SOS Children\'s Villages and dual-language family communications at School in the Square share the operating context: communities whose first language is often Spanish, whose trust is hard-won, and whose communications need to be bilingual at the brief stage.</p>' },
     ],
-    pullquote: '"The communities immigrant services nonprofits work with are accustomed to communications that talk <em>about</em> them more than <em>to</em> them."',
+    pullquote: '"The communities immigrant services nonprofits work with are accustomed to communications that talk <span>about</span> them more than <span>to</span> them."',
     related: ['sos-villages'],
   },
 
@@ -417,7 +417,7 @@ const RELATED_TITLES = {
 };
 
 function renderH1(parts) {
-  return parts.map(p => typeof p === 'string' ? p : `<em>${p.em}</em>`).join('');
+  return parts.map(p => typeof p === 'string' ? p : `<span>${p.em}</span>`).join('');
 }
 
 function renderRelated(slugs) {
@@ -443,12 +443,12 @@ const CSS = `:root{--forest:oklch(0.24 0.04 162);--forest-deep:oklch(0.18 0.035 
       main{max-width:var(--max);margin:0 auto;padding:64px var(--gutter) 96px;}
       .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;}
       .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:0.55;}
-      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.5vw,56px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:28px;}h1 em{font-style:italic;}
+      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.5vw,56px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:28px;}h1 em{font-style:normal;}
       .lede{font-size:22px;line-height:1.5;margin-bottom:48px;}
-      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;line-height:1.15;margin-top:56px;margin-bottom:20px;}h2 em{font-style:italic;}
+      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;line-height:1.15;margin-top:56px;margin-bottom:20px;}h2 em{font-style:normal;}
       p{margin-bottom:20px;}strong{font-weight:600;}
       ol,ul{margin:8px 0 24px 24px;}li{margin-bottom:10px;}
-      .pullquote{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.2vw,32px);line-height:1.3;color:var(--forest-deep);padding:16px 0 16px 24px;border-left:2px solid var(--moss);margin:40px 0;}
+      .pullquote{font-family:var(--display);font-style:normal;font-size:clamp(24px,3.2vw,32px);line-height:1.3;color:var(--forest-deep);padding:16px 0 16px 24px;border-left:2px solid var(--moss);margin:40px 0;}
       .related{margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);font-family:var(--sans);font-size:14px;}
       .related h3{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:400;}
       .related li{margin-bottom:8px;}
@@ -490,7 +490,7 @@ function buildPage(p) {
     "url": url,
     "audience": {"@type": "Audience", "audienceType": p.audience}
   });
-  const sectionsHtml = p.sections.map(s => `      <h2>${s.h2.replace(/\<em\>/g, '<em>').replace(/\<\/em\>/g, '</em>')}</h2>\n      ${s.body}`).join('\n\n');
+  const sectionsHtml = p.sections.map(s => `      <h2>${s.h2.replace(/\<em\>/g, '<span>').replace(/\<\/em\>/g, '</span>')}</h2>\n      ${s.body}`).join('\n\n');
   const pullquote = p.pullquote ? `\n\n      <p class="pullquote">${p.pullquote}</p>\n` : '';
 
   return `<!doctype html>
@@ -513,7 +513,7 @@ function buildPage(p) {
     <meta name="twitter:description" content="${p.metaDesc}" />
     <meta name="twitter:image" content="https://stephanierendon.com/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Newsreader:opsz,wght@6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
     <script type="application/ld+json">${serviceLd}</script>
     <script type="application/ld+json">${breadcrumb}</script>
     <style>${CSS}</style>
