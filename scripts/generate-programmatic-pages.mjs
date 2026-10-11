@@ -209,7 +209,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before a screening day or vaccination push, not after the English collateral is printed. Before an enrollment-period campaign opens. Before the next public-health emergency requires fast, accurate communications in two languages at once. Bilingual-from-the-start clinics are the ones whose Spanish-speaking patients show up.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -238,14 +238,14 @@ const pages = [
       </ul>
 
       <h2>Where the work shows up</h2>
-      <p>Earlier work at SOS Children's Villages USA included bilingual campaigns for an organization whose clients and beneficiaries lived across English and Spanish-speaking communities. The integrated campaign — earned media, paid distribution, and a HuffPost / Johnson &amp; Johnson partnership — doubled web traffic and earned coverage in AP, NBC, CNN, Reuters, and The Atlantic. American Red Cross work spanned Mexican earthquake response and disaster response work in immigrant-receiving communities. The connective tissue across both: bilingual was structural, not cosmetic.</p>
+      <p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>
 
       <p class="pullquote">"For an immigrant services organization, communications that condescend to Spanish-speaking clients erode the trust the organization spent years building."</p>
 
       <h2>When to bring me in</h2>
       <p>Before a major campaign launches. Before a sensitive press cycle. Before an annual report cycle that will be read by both an English-speaking funder community and a Spanish-speaking client community. The earlier bilingual enters the work, the better it lands.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -274,14 +274,14 @@ const pages = [
       </ul>
 
       <h2>Where the work shows up</h2>
-      <p>SOS Children's Villages USA was structurally a family services NGO — providing family-based care for children who had lost parental support. The integrated bilingual campaign there doubled the organization's web traffic and earned coverage in AP, NBC, CNN, Reuters, and The Atlantic — but the underlying choice was that bilingual was native to the brief, not appended to the deliverable. American Red Cross work spanning Mexican earthquake response and family-reunification communications applied the same playbook to disaster context. The pattern is portable to any family services organization willing to do bilingual once, properly.</p>
+      <p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>
 
       <p class="pullquote">"A family that doesn't understand the eligibility letter doesn't apply. The communications failure becomes a service failure."</p>
 
       <h2>When to bring me in</h2>
       <p>Before an outreach campaign launches. Before an annual report cycle. Before the next family-facing program announcement. Bilingual-from-the-start communications are how a family services organization stays legible to the families it exists to serve.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -317,7 +317,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before enrollment season. Before the next family-facing campaign. Before the brand refresh that's about to happen anyway. Building the bilingual infrastructure once is cheaper and better than rebuilding it every year under deadline pressure.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
 
@@ -392,7 +392,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before a crisis arrives. The foundations that handle a hard moment well have built the infrastructure during the quiet quarters — not at 11pm on a Sunday when a Times reporter calls.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -533,14 +533,14 @@ const pages = [
       </ul>
 
       <h2>Where the work shows up</h2>
-      <p>The bilingual layer of the SOS Children's Villages campaign — built bilingual from the brief stage, with Spanish-language outlets treated as primary — was part of what made the integrated campaign double the organization's web traffic and earn coverage in AP, NBC, CNN, Reuters, and The Atlantic alongside Spanish-language press. American Red Cross work in Mexican-American communities during disaster response added the dimension of pitching Spanish-language press during real emergencies, when the speed and specificity of the relationship is what determines whether the story runs.</p>
+      <p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson and developed media stories about children and families.</p>
 
       <p class="pullquote">"Spanish-language press has its own beat reporters and its own editorial calendars. Pitches built for those reporters earn coverage at a different level than translated pitches do."</p>
 
       <h2>When to bring me in</h2>
       <p>Before the next campaign or major announcement. Spanish-language media relations built into the brief stage costs less and produces more than Spanish-language pitching added at the end.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -577,7 +577,7 @@ const pages = [
       <p>Before the next academic-year news cycle. Programs deserving coverage rarely break through cold; they break through after the right reporter relationships and the right pitch architecture have been built.</p>`,
     related: [
       { href: "/work/fiu-disaster-drill/", label: "How a graduate field course at FIU got national press for being hands-on" },
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -641,14 +641,14 @@ const pages = [
       </ul>
 
       <h2>Where the work shows up</h2>
-      <p>The SOS Children's Villages USA campaign — earned coverage in AP, NBC, CNN, Reuters, and The Atlantic, plus a HuffPost / Johnson &amp; Johnson partnership and panel placements at the Clinton Global Initiative and the UN Foundation — is the case study I'd point to. <a href="/work/sos-villages/">Web traffic doubled and held.</a> But the headline numbers are downstream of the harder choice: pitch fewer outlets, better, and design the channels to reinforce each other rather than compete for budget.</p>
+      <p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>
 
       <p class="pullquote">"Most NGO campaigns run paid, earned, and partnerships as separate workstreams that happen to share a logo. The ones that compound have a single editorial spine."</p>
 
       <h2>When to bring me in</h2>
       <p>Before the next signature campaign. Earned coverage that compounds is the result of relationships built before the campaign, not the volume of outreach during it.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -681,14 +681,14 @@ const pages = [
       </ul>
 
       <h2>Where the work shows up</h2>
-      <p>SOS Children's Villages USA was structurally a brand project: a national NGO with limited US visibility, building the language and story architecture that would let an integrated campaign double its web traffic and earn coverage in AP, NBC, CNN, Reuters, and The Atlantic. The work that came out of that project — story pillars, voice and tone direction, the choice to lead with what's happening in the lives of the children supported rather than what the organization does — was foundation-relevant brand work in NGO context. The discipline transfers directly.</p>
+      <p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson and developed media stories about children and families.</p>
 
       <p class="pullquote">"Foundation audiences read brand work for signal about actual values and decision-making. Performative brand work gets read as performative."</p>
 
       <h2>When to bring me in</h2>
       <p>At the start of a strategic plan refresh, a leadership transition, a major program expansion, or whenever the public-facing language no longer matches the work. The earlier the engagement, the less the brand work fights against an already-set strategy.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -724,7 +724,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before enrollment season. Before the next board strategic-plan refresh. Before the brand refresh that's already on the calendar for next year. Building the language once, properly, is cheaper than rebuilding it after a rough press cycle.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -760,7 +760,7 @@ const pages = [
       <p>At the start of a strategic plan, a leadership transition, a school or center launch, or whenever the language built for grants is no longer serving the public-facing work.</p>`,
     related: [
       { href: "/work/fiu-disaster-drill/", label: "How a graduate field course at FIU got national press for being hands-on" },
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
 
@@ -799,7 +799,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before the next school year. Before enrollment season. Before the brand refresh or strategic plan that's about to drive engagement work. Building the infrastructure once, properly, is cheaper than rebuilding it every year.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -835,7 +835,7 @@ const pages = [
       <p>Before the next outreach push. Before flu season, enrollment period, or whatever the next major campaign cycle is. Engagement infrastructure built once, properly, compounds across every campaign that follows.</p>`,
     related: [
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -870,7 +870,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before the next program cycle. Before the next major policy announcement that will affect the community served. Before the next press cycle that may turn on the organization. The engagement infrastructure built ahead of time is what holds when something hard arrives.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -910,7 +910,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>At the start of the annual cycle, not in the middle of it. The editorial decisions that distinguish a publication from a deliverable are made in spring, not when copy is due in fall.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/fiu-disaster-drill/", label: "How a graduate field course at FIU got national press for being hands-on" },
     ],
   },
@@ -947,7 +947,7 @@ const pages = [
       <p>Before a major findings release. Before the next op-ed pitch cycle. Before the explainer that's been on the to-do list for six months and keeps getting outranked by something more urgent.</p>`,
     related: [
       { href: "/work/fiu-disaster-drill/", label: "How a graduate field course at FIU got national press for being hands-on" },
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -983,7 +983,7 @@ const pages = [
       <p>At the start of the cycle, not in the middle of it. The editorial decisions that distinguish a publication from a coverage document are made when the editorial calendar is being built, not when copy is due.</p>`,
     related: [
       { href: "/work/fiu-disaster-drill/", label: "How a graduate field course at FIU got national press for being hands-on" },
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
 
@@ -1022,7 +1022,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before the next major campaign, brand cycle, enrollment season, or annual report cycle. Available for NYC-based engagements and remote work. Bilingual (EN/ES) by default.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
       { href: "/work/red-cross/", label: "Storytelling that moves people: a Red Cross feature about earthquake survivors" },
     ],
   },
@@ -1058,7 +1058,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before the next major campaign, brand cycle, or community-facing program launch. Available for NYC-based engagements and remote work, with on-the-ground availability for Brooklyn-rooted organizations.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
   {
@@ -1093,7 +1093,7 @@ const pages = [
       <h2>When to bring me in</h2>
       <p>Before the next major campaign, brand cycle, enrollment season, or annual report cycle. Available for NYC-based engagements and remote work, with on-the-ground availability for Manhattan-rooted organizations.</p>`,
     related: [
-      { href: "/work/sos-villages/", label: "How an integrated campaign doubled SOS Children's Villages' web traffic" },
+      { href: "/work/sos-villages/", label: "An integrated campaign for SOS Children's Villages" },
     ],
   },
 ];

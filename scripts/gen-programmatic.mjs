@@ -61,7 +61,7 @@ const PAGES = [
     sections: [
       { h2: 'The challenge', body: '<p>Family services communications carry weight that other nonprofit comms do not. A foster placement update in awkward Spanish reads as cold to the family receiving it. A parenting class invitation translated badly never converts to attendance. A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <em>about</em> the community more than it talks <em>to</em> it.</p>' },
       { h2: 'What I deliver', body: '<ul><li><strong>Bilingual program and family communications.</strong> Updates, invitations, intake forms, post-program follow-up.</li><li><strong>Bilingual donor communications.</strong> Annual appeals, year-end campaigns, major-gift cultivation that respects the bilingual character of the work.</li><li><strong>Editorial: bilingual annual reports and impact stories.</strong> Built in both languages from the brief.</li><li><strong>Bilingual training materials</strong> for caseworkers and family-facing staff.</li></ul>' },
-      { h2: 'Where the work connects to my career', body: '<p>The integrated bilingual campaign I led at SOS Children\'s Villages USA — partnering with HuffPost and Johnson &amp; Johnson — doubled the organization\'s web traffic and built a model for family-services storytelling that combined English and Spanish-language outlets without translating.</p>' },
+      { h2: 'Where the work connects to my career', body: '<p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>' },
     ],
     pullquote: '"A donor appeal about Spanish-speaking families written entirely in English signals that the organization talks <em>about</em> the community more than it talks <em>to</em> it."',
     related: ['sos-villages', 'red-cross'],
@@ -170,7 +170,7 @@ const PAGES = [
     sections: [
       { h2: 'What makes Spanish-language media relations different', body: '<p>Univision, Telemundo, EFE, El Diario NY, La Opinión, Hoy, and the regional Spanish-language press cover the same world as English-language outlets, but the angles, story selection, and source expectations are different. A pitch that lands at the New York Times will not necessarily land at El Diario NY — and vice versa.</p><p>The work is relational, like English-language media relations. The relationships take longer to build for organizations that are starting cold.</p>' },
       { h2: 'What I deliver', body: '<ul><li><strong>Pitching to Spanish-language press</strong> on the stories that fit their editorial logic.</li><li><strong>Spanish-language spokesperson preparation.</strong> Different register, often different cultural context, sometimes different content emphasis than the English version.</li><li><strong>Bilingual press releases</strong> built bilingual at the brief stage.</li><li><strong>Long-term relationship building</strong> with Spanish-language beat reporters.</li><li><strong>Cultural-fluency direction</strong> for monolingual comms teams pitching Spanish-language press for the first time.</li></ul>' },
-      { h2: 'Where the work connects to my career', body: '<p>The integrated bilingual campaign at SOS Children\'s Villages — which doubled the organization\'s web traffic — included Spanish-language outlet coordination as architectural, not afterthought. National coverage in AP, NBC, CNN, Reuters, and The Atlantic was paired with Spanish-language coverage that reached the audience the campaign was actually for.</p>' },
+      { h2: 'Where the work connects to my career', body: '<p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>' },
     ],
     pullquote: '"A pitch that lands at the New York Times will not necessarily land at El Diario NY — and vice versa."',
     related: ['sos-villages', 'red-cross'],
@@ -210,12 +210,12 @@ const PAGES = [
     audience: 'National NGOs',
     audienceTitle: 'National NGO Media Relations',
     h1: ['Media Relations for ', { em: 'National NGOs' }],
-    metaDesc: 'Media relations for national NGOs: integrated campaigns combining earned media, paid distribution, and brand partnerships. From a campaign that doubled web traffic.',
+    metaDesc: 'Media relations for national NGOs: integrated campaigns combining earned media, paid distribution, and brand partnerships. From a campaign with HuffPost and Johnson &amp; Johnson.',
     lede: 'National NGO media relations is about scale: getting a single story to land in multiple outlets, sustaining attention across a campaign cycle, and combining earned media with paid distribution and brand partnerships into something larger than any of the three alone.',
     sections: [
       { h2: 'The challenge', body: '<p>National NGOs compete for share of attention against larger, better-funded organizations. The traditional earned-media playbook — pitch reporters, hope they care — does not scale to the kind of attention NGOs actually need. Integrated campaign architecture does.</p>' },
       { h2: 'What I deliver', body: '<ul><li><strong>Integrated campaign architecture.</strong> Earned media + paid distribution + brand partnership designed together, not stitched together.</li><li><strong>National media strategy.</strong> The 3-5 stories worth telling per year, ranked by which reporters are likely to care, with an architecture for getting the right ones into the right inboxes.</li><li><strong>Brand partnerships</strong> with major editorial properties (HuffPost, The Atlantic, etc.) that amplify the editorial work.</li><li><strong>Bilingual coordination</strong> for NGOs whose audiences span Spanish-speaking populations.</li></ul>' },
-      { h2: 'Where the work connects to my career', body: '<p>The integrated campaign at SOS Children\'s Villages USA — combining earned media, paid distribution, and a HuffPost / Johnson &amp; Johnson partnership — doubled the organization\'s web traffic and earned coverage in AP, NBC, CNN, Reuters, and The Atlantic. The architecture is portable to other national NGOs facing the same scale challenge.</p>' },
+      { h2: 'Where the work connects to my career', body: '<p>At SOS Children’s Villages–USA, I worked on an integrated campaign with HuffPost and Johnson &amp; Johnson, developed media stories about children and families, and supported communications in English and Spanish.</p>' },
     ],
     pullquote: '"The traditional earned-media playbook — pitch reporters, hope they care — does not scale. Integrated campaign architecture does."',
     related: ['sos-villages', 'red-cross'],
@@ -411,7 +411,7 @@ const PAGES = [
 ];
 
 const RELATED_TITLES = {
-  'sos-villages': 'How an integrated campaign doubled SOS Children\'s Villages\' web traffic',
+  'sos-villages': 'An integrated campaign for SOS Children\'s Villages',
   'red-cross': 'Storytelling that moves people: a Red Cross feature about earthquake survivors',
   'fiu-disaster-drill': 'How a graduate field course at FIU got national press for being hands-on',
 };
