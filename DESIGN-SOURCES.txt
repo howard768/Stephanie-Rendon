@@ -15,3 +15,8 @@ MIT license; version 2.0.2. Used for local development controls for radius, acce
 Recent post about font support: https://x.com/joshpuckett/status/2109394208075464899
 
 Original design implementation for Stephanie Rendon. Existing portrait, field photographs and publication logos retained from her repository. Existing Google Fonts typography: Geist and Instrument Serif.
+
+FAVICON AND CASE-PAGE REFINEMENT · 11 October 2026
+The favicon is an original SR monogram drawn as SVG paths, using dark green and ivory with a light sage variant for dark browser tabs. No stock icon or external monogram font is embedded. Small PNGs, a multi-size ICO and a touch icon are generated locally with the existing Sharp dependency. Regenerate with node scripts/generate-favicon.mjs before building.
+Open-source references reviewed: https://github.com/itgalaxy/favicons (MIT favicon generation) and https://lucide.dev/license (Lucide licensing). No artwork from either project was copied or added.
+The English and Spanish crisis case now use the existing Stephanie portrait, explicitly captioned as a portrait of the communications leader. The case body aligns with the title. No event or training attribution is inferred from the portrait.
