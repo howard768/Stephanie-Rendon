@@ -1,6 +1,6 @@
 # Stephanie Rendon
 
-> Stephanie Rendon is a bilingual (English/Spanish) strategic communications leader based in New York City with 14+ years of experience in media relations, brand strategy, crisis communications, and community engagement for mission-driven organizations. She is available for freelance consulting with nonprofits, NGOs, education institutions, and public health organizations.
+> Stephanie Rendon is a bilingual (English/Spanish) strategic communications leader based in New York City with experience in media relations, brand strategy, crisis communications, and community engagement for mission-driven organizations. Her portfolio focuses on communications leadership, national media, executive preparation and public health research.
 
 ## About
 
@@ -29,7 +29,7 @@ Her work has been featured in The New York Times, NBC News, CBS News, The Today 
 - Ran media strategy at the American Red Cross and supported national crisis and disaster response communications
 - Directed communications for SOS Children's Villages, landing coverage in NBC, CNN, Reuters, and The Associated Press
 - Managed FIU Stempel College's marketing across brand, editorial, media, social, and advertising
-- Coordinated a digital campaign with Huffington Post and Johnson & Johnson that doubled website traffic
+- Coordinated a digital campaign with Huffington Post and Johnson & Johnson for SOS Children’s Villages
 - Placed panelists at the Clinton Global Initiative and United Nations Foundation events
 
 ## Featured Media Coverage
@@ -37,7 +37,7 @@ Her work has been featured in The New York Times, NBC News, CBS News, The Today 
 - [NBC News: Shot During Cookies and Milk: A Syrian Boy's Story](https://www.nbcnews.com/storyline/syrias-suffering-families/shot-during-cookies-milk-syrian-boys-story-n266356): Feature on a Syrian boy's recovery with support from SOS Children's Villages
 - [NBC News: Child War Survivor to Syria's Children: Don't Give Up](https://www.nbcnews.com/storyline/syrias-children/child-war-survivor-syrias-children-dont-give-n51161): Story of a Liberian war survivor sharing hope with Syrian children
 - [TODAY: Red Cross urges people to donate blood amid coronavirus concerns](https://www.today.com/health/red-cross-urges-people-donate-blood-amid-coronavirus-concerns-t175665): Coverage of Red Cross blood donation campaign during COVID-19
-- [New York Times: Hurricane Season 2020](https://www.nytimes.com/2020/05/21/climate/hurricane-season-2020-noaa.html): Article featuring FIU experts on disaster preparedness
+- [New York Times: Hurricane Season 2020](https://www.nytimes.com/2020/05/21/climate/hurricane-season-2020-noaa.html): Quotes Stephanie as an American Red Cross spokesperson on shelter planning during COVID-19
 - [CBS News Miami: FIU stages largest disaster drill in the state](https://www.cbsnews.com/miami/news/florida-international-university-stages-largest-disaster-drill-in-the-state/): Coverage of FIU's large-scale disaster drill
 
 ## Portfolio Samples
@@ -52,8 +52,10 @@ Her work has been featured in The New York Times, NBC News, CBS News, The Today 
 
 - Website: https://stephanierendon.com
 - LinkedIn: https://www.linkedin.com/in/rendonstephanie/
-- Contact form: https://stephanierendon.com (navigate to Contact page)
+- Public contact: hello@stephanierendon.com
 
-## Optional: Detailed llms.txt
 
-For a more detailed version of this file, see: [llms-full.txt](https://stephanierendon.com/llms-full.txt)
+## Case studies
+- [Making an urgent need a national story.](https://stephanierendon.com/work/blood-supply/)
+- [A prepared voice when the stakes are high.](https://stephanierendon.com/work/crisis-spokesperson/)
+- [Bringing research into everyday life.](https://stephanierendon.com/work/research-communications/)
