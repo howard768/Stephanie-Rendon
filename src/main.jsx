@@ -4,6 +4,8 @@ import './index.css'
 import App from './App.jsx'
 
 const rootEl = document.getElementById('root')
+const language = window.location.pathname.startsWith('/es/') ? 'es' : 'en'
+document.documentElement.lang = language
 
 // The homepage is prerendered to static HTML at build time (see scripts/prerender.mjs).
 // When that prerendered markup is present, hydrate it so the page is interactive
@@ -13,13 +15,13 @@ if (rootEl.hasChildNodes()) {
   hydrateRoot(
     rootEl,
     <StrictMode>
-      <App />
+      <App language={language} />
     </StrictMode>,
   )
 } else {
   createRoot(rootEl).render(
     <StrictMode>
-      <App />
+      <App language={language} />
     </StrictMode>,
   )
 }

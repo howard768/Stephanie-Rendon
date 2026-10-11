@@ -1,0 +1,17 @@
+DESIGN REFERENCES · Reviewed 11 October 2026
+
+Confirmed in Brock’s following list on X: Fons Mans, Josh Puckett, Daryl Ginn, Rogie, MDS and others.
+
+Fons Mans / Offgrid: https://offgrid.inc/
+Recent post: https://x.com/FonsMans/status/2108112099105026332
+Used as visual inspiration for strong typography and image-led presentation. No proprietary assets or templates copied.
+
+Daryl Ginn / Recent: https://recent.design/
+https://x.com/darylginn
+Used as inspiration for curated work cards and precise spacing. No gallery artwork copied.
+
+Josh Puckett / DialKit: https://github.com/joshpuckett/dialkit
+MIT license; version 2.0.2. Used for local development controls for radius, accent color and transition timing. Production excludes the component and its dependencies.
+Recent post about font support: https://x.com/joshpuckett/status/2109394208075464899
+
+Original design implementation for Stephanie Rendon. Existing portrait, field photographs and publication logos retained from her repository. Existing Google Fonts typography: Geist and Instrument Serif.

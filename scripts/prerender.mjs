@@ -13,7 +13,7 @@
 // Run automatically as the build postbuild step (see package.json).
 
 import { build } from 'vite';
-import { readFileSync, writeFileSync, rmSync, existsSync } from 'node:fs';
+import { readFileSync, writeFileSync, rmSync, existsSync, mkdirSync } from 'node:fs';
 import { dirname, join } from 'node:path';
 import { fileURLToPath, pathToFileURL } from 'node:url';
 
@@ -60,8 +60,17 @@ if (!html.includes(EMPTY_ROOT)) {
   console.error('[prerender] Could not find empty <div id="root"></div> in dist/index.html.');
   process.exit(1);
 }
-html = html.replace(EMPTY_ROOT, `<div id="root">${appHtml}</div>`);
-writeFileSync(INDEX, html);
+writeFileSync(INDEX, html.replace(EMPTY_ROOT, `<div id="root">${appHtml}</div>`));
+const esHtml = html.replace('<html lang="en">', '<html lang="es">')
+  .replaceAll('Stephanie Rendon | Strategic Communications & Media Relations', 'Stephanie Rendon | Comunicación estratégica y relaciones con medios')
+  .replace(EMPTY_ROOT, `<div id="root">${render('es')}</div>`)
+  .replace(/Stephanie Rendon is a bilingual[^"]+/g, 'Stephanie Rendon es una líder en comunicación bilingüe en Nueva York. Relaciones con medios, preparación ejecutiva, comunicación de crisis e investigación en salud pública.')
+  .replace(/Bilingual \(EN\/ES\) communications leader[^"]+/g, 'Liderazgo en comunicación, relaciones con medios y preparación de portavoces en inglés y español.')
+  .replace('<title>Stephanie Rendon | Strategic Communications & Media Relations</title>', '<title>Stephanie Rendon | Comunicación estratégica y relaciones con medios</title>')
+  .replace(/(<link rel="canonical" href=")https:\/\/stephanierendon.com\//, '$1https://stephanierendon.com/es/')
+  .replace(/(<meta property="og:url" content=")https:\/\/stephanierendon.com\//, '$1https://stephanierendon.com/es/');
+mkdirSync(join(DIST, 'es'), { recursive: true });
+writeFileSync(join(DIST, 'es/index.html'), esHtml);
 
 // 4. Clean up the temporary SSR bundle.
 rmSync(SSR_OUT, { recursive: true, force: true });
