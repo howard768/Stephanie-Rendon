@@ -24,12 +24,12 @@ const STYLE = `:root{--forest:oklch(0.24 0.04 162);--forest-deep:oklch(0.18 0.03
       main{max-width:var(--max);margin:0 auto;padding:64px var(--gutter) 96px;}
       .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;}
       .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:0.55;}
-      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.5vw,56px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:28px;}h1 em{font-style:italic;}
+      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5.5vw,56px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:28px;}h1 em{font-style:normal;}
       .lede{font-size:22px;line-height:1.5;margin-bottom:48px;}
-      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;line-height:1.15;margin-top:56px;margin-bottom:20px;}h2 em{font-style:italic;}
+      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;line-height:1.15;margin-top:56px;margin-bottom:20px;}h2 em{font-style:normal;}
       p{margin-bottom:20px;}strong{font-weight:600;}
       ol,ul{margin:8px 0 24px 24px;}li{margin-bottom:10px;}
-      .pullquote{font-family:var(--display);font-style:italic;font-size:clamp(24px,3.2vw,32px);line-height:1.3;color:var(--forest-deep);padding:16px 0 16px 24px;border-left:2px solid var(--moss);margin:40px 0;}
+      .pullquote{font-family:var(--display);font-style:normal;font-size:clamp(24px,3.2vw,32px);line-height:1.3;color:var(--forest-deep);padding:16px 0 16px 24px;border-left:2px solid var(--moss);margin:40px 0;}
       .related{margin-top:48px;padding-top:24px;border-top:1px solid var(--rule);font-family:var(--sans);font-size:14px;}
       .related h3{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-bottom:16px;font-weight:400;}
       .related li{margin-bottom:8px;}
@@ -57,7 +57,7 @@ function htmlEscape(s) {
 }
 
 function jsonEscape(s) {
-  // Drop any HTML tags (we don't want <em> in schema descriptions) then
+  // Drop any HTML tags (we don't want <span> in schema descriptions) then
   // escape ampersand only — JSON.stringify handles the rest.
   return s.replace(/<[^>]+>/g, "");
 }
@@ -123,7 +123,7 @@ function pageHtml(p) {
     <meta name="twitter:description" content="${htmlEscape(p.twitterDescription || p.ogDescription || p.metaDescription)}" />
     <meta name="twitter:image" content="https://stephanierendon.com/og-image.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" /><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Newsreader:opsz,wght@6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
     <script type="application/ld+json">
     ${JSON.stringify(serviceJsonLd)}
     </script>
@@ -186,7 +186,7 @@ const pages = [
       "Bilingual (EN/ES) communications for community health clinics whose patients are predominantly Spanish-speaking. Patient education, public-health campaigns, and crisis comms built bilingual from the start.",
     breadcrumbName: "Health Clinics",
     eyebrow: "Service · S · 06 · Health Clinics",
-    h1: "Bilingual Communications for <em>Community Health Clinics</em>",
+    h1: "Bilingual Communications for <span>Community Health Clinics</span>",
     lede: "Community clinics whose patients are predominantly Spanish-speaking deserve communications that meet them where they are — not English copy with translation as the last line item in the budget.",
     ctaText: "Patients deserve communications built for them, not translated to them.",
     body: `      <h2>What community clinics need bilingual to do</h2>
@@ -222,7 +222,7 @@ const pages = [
       "Bilingual (EN/ES) campaigns and communications for immigrant services organizations. Cultural fluency for organizations whose mission and clients are bilingual by definition.",
     breadcrumbName: "Immigrant Services",
     eyebrow: "Service · S · 06 · Immigrant Services",
-    h1: "Bilingual Campaigns for <em>Immigrant Services Organizations</em>",
+    h1: "Bilingual Campaigns for <span>Immigrant Services Organizations</span>",
     lede: "For organizations whose mission and clients are bilingual by definition, communications cannot be English with a Spanish translation step bolted on. The work is bilingual or it isn't the work.",
     ctaText: "Mission is bilingual. Communications should be too.",
     body: `      <h2>What's at stake</h2>
@@ -258,7 +258,7 @@ const pages = [
       "Bilingual (EN/ES) family-facing communications for family services nonprofits. Plain-language, culturally fluent campaigns and program communications.",
     breadcrumbName: "Family Services",
     eyebrow: "Service · S · 06 · Family Services",
-    h1: "Bilingual Communications for <em>Family Services Nonprofits</em>",
+    h1: "Bilingual Communications for <span>Family Services Nonprofits</span>",
     lede: "Family services nonprofits live or die on whether the families they serve actually understand the help available. Bilingual communications are how the help becomes legible.",
     ctaText: "Families served deserve communications they can actually read.",
     body: `      <h2>The challenge for family services nonprofits</h2>
@@ -294,7 +294,7 @@ const pages = [
       "Bilingual (EN/ES) family communications, enrollment marketing, and earned media for dual-language schools. Communications that match the bilingual academic model.",
     breadcrumbName: "Dual-Language Schools",
     eyebrow: "Service · S · 06 · Dual-Language Schools",
-    h1: "Bilingual Campaigns for <em>Dual-Language Schools</em>",
+    h1: "Bilingual Campaigns for <span>Dual-Language Schools</span>",
     lede: "A dual-language school whose communications are English-first contradicts itself. The model is bilingual. The communications need to match.",
     ctaText: "The model is bilingual. The communications should match.",
     body: `      <h2>The mismatch most dual-language schools have</h2>
@@ -333,7 +333,7 @@ const pages = [
       "Crisis communications for charter schools and charter networks. Family-facing, bilingual where needed, designed for the unique scrutiny charter schools face during a crisis.",
     breadcrumbName: "Charter Schools",
     eyebrow: "Service · S · 03 · Charter Schools",
-    h1: "Crisis Communications for <em>Charter Schools</em>",
+    h1: "Crisis Communications for <span>Charter Schools</span>",
     lede: "Charter schools face a different scrutiny during a crisis than district schools. The communications playbook needs to account for that — without losing the families the school exists to serve.",
     ctaText: "Need a crisis playbook before the crisis arrives?",
     body: `      <h2>What's different about charter school crises</h2>
@@ -369,7 +369,7 @@ const pages = [
       "Crisis communications for foundations and grantmakers. Reputational, governance, and grantee-related crisis response designed for the institutions that fund the work.",
     breadcrumbName: "Foundations",
     eyebrow: "Service · S · 03 · Foundations",
-    h1: "Crisis Communications for <em>Foundations</em>",
+    h1: "Crisis Communications for <span>Foundations</span>",
     lede: "Foundations face crises of governance, reputation, and grantee fallout that require a different communications calculus than the organizations they fund. The work is quieter, more careful, and just as urgent.",
     ctaText: "Need foundation-specific crisis preparation?",
     body: `      <h2>Why foundations need their own playbook</h2>
@@ -405,7 +405,7 @@ const pages = [
       "Crisis communications for hospitals, community health clinics, public health institutions, and health research organizations. Built around clinical accuracy, bilingual where needed, calibrated for high-stakes audiences.",
     breadcrumbName: "Health Organizations",
     eyebrow: "Service · S · 03 · Health Organizations",
-    h1: "Crisis Communications for <em>Health Organizations</em>",
+    h1: "Crisis Communications for <span>Health Organizations</span>",
     lede: "Health organization crises are different. Clinical accuracy, regulatory exposure, and the trust patients place in institutions all factor into communications that can't afford to be wrong.",
     ctaText: "Health crisis prep that respects clinical accuracy?",
     body: `      <h2>What makes health crises different</h2>
@@ -441,7 +441,7 @@ const pages = [
       "Crisis communications for universities, colleges, and academic centers. Designed for the multi-stakeholder environment higher ed crises actually live in — students, families, faculty, alumni, donors, regulators, press.",
     breadcrumbName: "Higher Education",
     eyebrow: "Service · S · 03 · Higher Education",
-    h1: "Crisis Communications for <em>Higher Education Institutions</em>",
+    h1: "Crisis Communications for <span>Higher Education Institutions</span>",
     lede: "Higher ed crises live in a multi-stakeholder environment that no playbook from another sector handles cleanly. Students, families, faculty, alumni, donors, regulators, and press all expect different things at the same time.",
     ctaText: "Higher ed crisis prep with the audience layering it actually requires?",
     body: `      <h2>What makes higher ed crises hard</h2>
@@ -477,7 +477,7 @@ const pages = [
       "Crisis communications for disaster response organizations and humanitarian NGOs. Built for the operational tempo and donor-facing demands of communications during a real emergency.",
     breadcrumbName: "Disaster Response",
     eyebrow: "Service · S · 03 · Disaster Response",
-    h1: "Crisis Communications for <em>Disaster Response Organizations</em>",
+    h1: "Crisis Communications for <span>Disaster Response Organizations</span>",
     lede: "Disaster response communications operate at a tempo and under a public scrutiny that no other crisis playbook prepares for. The work has to be fast, accurate, donor-aware, and dignified to the people in the story — at the same time.",
     ctaText: "Disaster response comms support, before or during?",
     body: `      <h2>The double brief of disaster response comms</h2>
@@ -517,7 +517,7 @@ const pages = [
       "Spanish-language media relations for nonprofits, NGOs, and education organizations. Univision, Telemundo, EFE, El Diario NY, and regional Spanish-language press — pitched as a primary audience, not a translation list.",
     breadcrumbName: "Spanish-Language Media",
     eyebrow: "Service · S · 02 · Spanish-Language Media",
-    h1: "<em>Spanish-Language</em> Media Relations",
+    h1: "<span>Spanish-Language</span> Media Relations",
     lede: "Spanish-language press is not an English-language media list with translated subject lines. It is its own ecosystem of beat reporters, story logic, and editorial expectations — and it earns coverage for the organizations that treat it that way.",
     ctaText: "Pitching Spanish-language press? Treat it as primary, not derived.",
     body: `      <h2>Why most Spanish-language pitches fail</h2>
@@ -553,7 +553,7 @@ const pages = [
       "Media relations and earned media strategy for universities, colleges, and academic centers. Press releases that get picked up, faculty experts that get booked, programs that earn the coverage they deserve.",
     breadcrumbName: "Higher Education",
     eyebrow: "Service · S · 02 · Higher Education",
-    h1: "Media Relations for <em>Higher Education</em>",
+    h1: "Media Relations for <span>Higher Education</span>",
     lede: "Most university press releases read like curriculum descriptions — accurate and ignorable. The ones that earn coverage do something different.",
     ctaText: "Programs deserving coverage that read like curriculum?",
     body: `      <h2>The higher-ed earned-media problem</h2>
@@ -589,7 +589,7 @@ const pages = [
       "Media relations for public health research institutions, schools of public health, and health research organizations. Translating research into coverage without losing what makes the research worth covering.",
     breadcrumbName: "Public Health Research",
     eyebrow: "Service · S · 02 · Public Health Research",
-    h1: "Media Relations for <em>Public Health Research Institutions</em>",
+    h1: "Media Relations for <span>Public Health Research Institutions</span>",
     lede: "Public health research is high-stakes, high-context, and easy to misreport. The earned-media work is to make the findings legible to a general-audience reporter without flattening what makes them findings worth reporting.",
     ctaText: "Research deserving general-audience coverage?",
     body: `      <h2>The translation problem</h2>
@@ -625,7 +625,7 @@ const pages = [
       "Media relations and earned media strategy for national and international NGOs. Top-tier earned coverage in AP, Reuters, NYT, NBC, CNN, and the outlets that move both donor attention and policy.",
     breadcrumbName: "National NGOs",
     eyebrow: "Service · S · 02 · National NGOs",
-    h1: "Media Relations for <em>National NGOs</em>",
+    h1: "Media Relations for <span>National NGOs</span>",
     lede: "For a national NGO, earned coverage is more than visibility. It is donor pipeline, policy leverage, and the proof of relevance that the next funding cycle is built on.",
     ctaText: "NGO mission deserves coverage that compounds.",
     body: `      <h2>Why volume isn't the metric</h2>
@@ -665,7 +665,7 @@ const pages = [
       "Brand and narrative strategy for foundations and grantmakers. Positioning, voice, and story architecture for institutions whose work is layered, careful, and easy to mis-describe.",
     breadcrumbName: "Foundations",
     eyebrow: "Service · S · 01 · Foundations",
-    h1: "Brand Strategy for <em>Foundations</em>",
+    h1: "Brand Strategy for <span>Foundations</span>",
     lede: "Foundations are some of the hardest organizations to brand well. The work is layered, the audiences are sophisticated, and the wrong language flattens decades of careful program design into a tagline.",
     ctaText: "Foundation language no longer matching the work?",
     body: `      <h2>Why foundation brand work is hard</h2>
@@ -701,7 +701,7 @@ const pages = [
       "Brand and narrative strategy for charter school networks. Positioning, voice, and story architecture that match the model on the ground — and that hold up under the political scrutiny charters face.",
     breadcrumbName: "Charter Schools",
     eyebrow: "Service · S · 01 · Charter Schools",
-    h1: "Brand Strategy for <em>Charter School Networks</em>",
+    h1: "Brand Strategy for <span>Charter School Networks</span>",
     lede: "A charter network's brand has to do double duty: convince families to enroll and hold up under political scrutiny that district schools don't face. The language has to be both warm and defensible.",
     ctaText: "Network language not yet matching what's happening on the ground?",
     body: `      <h2>The double brief of charter brand work</h2>
@@ -736,7 +736,7 @@ const pages = [
       "Brand and narrative strategy for research institutions, academic centers, and schools of public health. Positioning, voice, and story architecture that respect the work and earn the audiences it deserves.",
     breadcrumbName: "Research Institutions",
     eyebrow: "Service · S · 01 · Research Institutions",
-    h1: "Brand Strategy for <em>Research Institutions</em>",
+    h1: "Brand Strategy for <span>Research Institutions</span>",
     lede: "Research institutions have a translation problem more often than a brand problem. The work is real, the impact is measurable, but the language built up for grant reports and academic audiences doesn't move the public, the press, or the next class of students.",
     ctaText: "Research deserves language as good as the work.",
     body: `      <h2>The translation problem</h2>
@@ -776,7 +776,7 @@ const pages = [
       "Community engagement strategy for dual-language schools. Family engagement, neighborhood partnerships, and bilingual community communications that match the academic model.",
     breadcrumbName: "Dual-Language Schools",
     eyebrow: "Service · S · 04 · Dual-Language Schools",
-    h1: "Community Engagement for <em>Dual-Language Schools</em>",
+    h1: "Community Engagement for <span>Dual-Language Schools</span>",
     lede: "Community engagement at a dual-language school is not an event-planning function. It is the daily infrastructure that determines whether the families and the neighborhood see the school as theirs.",
     ctaText: "Engagement infrastructure that holds across a school year?",
     body: `      <h2>What community engagement actually means at a dual-language school</h2>
@@ -811,7 +811,7 @@ const pages = [
       "Community engagement strategy for community health clinics. Bilingual outreach, trusted-messenger partnerships, and patient communications that bring the community in rather than pushing services out.",
     breadcrumbName: "Health Clinics",
     eyebrow: "Service · S · 04 · Health Clinics",
-    h1: "Community Engagement for <em>Health Clinics</em>",
+    h1: "Community Engagement for <span>Health Clinics</span>",
     lede: "Community engagement at a health clinic isn't a marketing exercise. It is the work of being the trusted institution patients turn to, which determines whether outreach campaigns work, whether enrollment-period pushes land, and whether patients show up for the screening day.",
     ctaText: "Engagement that turns the clinic into a trusted institution?",
     body: `      <h2>What clinic engagement actually requires</h2>
@@ -847,7 +847,7 @@ const pages = [
       "Community engagement strategy for immigrant services organizations. Bilingual outreach, trusted-messenger networks, and client-facing communications that keep the organization in the rooms that matter.",
     breadcrumbName: "Immigrant Services",
     eyebrow: "Service · S · 04 · Immigrant Services",
-    h1: "Community Engagement for <em>Immigrant Services</em>",
+    h1: "Community Engagement for <span>Immigrant Services</span>",
     lede: "For an immigrant services organization, community engagement is not optional infrastructure. It is the difference between an organization that the community trusts and an organization that runs programs in the community.",
     ctaText: "Engagement infrastructure that holds across the program year?",
     body: `      <h2>The trust calculus</h2>
@@ -887,7 +887,7 @@ const pages = [
       "Editorial direction for foundation annual reports. Story selection, narrative architecture, and write-through that turn the annual cycle into a publication grantees and peer funders actually read.",
     breadcrumbName: "Foundation Annual Reports",
     eyebrow: "Service · S · 05 · Foundation Annual Reports",
-    h1: "Editorial Direction for <em>Foundation Annual Reports</em>",
+    h1: "Editorial Direction for <span>Foundation Annual Reports</span>",
     lede: "The foundation annual report is the publication grantees, peer funders, and the board read to take the foundation's measure. Most read like a list of grants. The ones that do their job read like a publication.",
     ctaText: "Annual report cycle starting? The editorial work begins now.",
     body: `      <h2>Why most foundation annuals don't land</h2>
@@ -923,7 +923,7 @@ const pages = [
       "Editorial work that translates research findings into language general-audience readers can use. Long-form features, op-eds, explainers, and press materials for research institutions and academic centers.",
     breadcrumbName: "Research Translations",
     eyebrow: "Service · S · 05 · Research Translations",
-    h1: "Translating Research for <em>General Audiences</em>",
+    h1: "Translating Research for <span>General Audiences</span>",
     lede: "Research findings live or die on whether anyone outside the field reads them. The editorial work is to make the findings legible without flattening what makes them findings worth reading.",
     ctaText: "Research that deserves general-audience attention?",
     body: `      <h2>The translation problem in research editorial</h2>
@@ -959,7 +959,7 @@ const pages = [
       "Editorial direction for higher education publications — alumni magazines, year-in-review reports, school and center publications. Editorial that respects the institution and earns the audiences it deserves.",
     breadcrumbName: "Higher Ed Publications",
     eyebrow: "Service · S · 05 · Higher Ed Publications",
-    h1: "Editorial for <em>Higher Ed Publications</em>",
+    h1: "Editorial for <span>Higher Ed Publications</span>",
     lede: "The university publication that gets read does something the default doesn't: it makes editorial choices, treats the audience as readers rather than recipients, and preserves the voice of the people who actually do the work.",
     ctaText: "Alumni magazine, school publication, or year-in-review cycle starting?",
     body: `      <h2>What university publications usually get wrong</h2>
@@ -999,7 +999,7 @@ const pages = [
       "Bilingual (EN/ES) communications consultant based in New York City. Strategic communications for NYC nonprofits, schools, NGOs, and foundations whose audiences are bilingual.",
     breadcrumbName: "New York City",
     eyebrow: "Service · S · 06 · New York City",
-    h1: "Bilingual Communications Consultant in <em>New York City</em>",
+    h1: "Bilingual Communications Consultant in <span>New York City</span>",
     lede: "Bilingual (EN/ES) communications consulting, based in New York City, for the nonprofits, schools, NGOs, and foundations whose audiences are bilingual by default — not by translation.",
     ctaText: "NYC organization with a bilingual audience? Let's talk.",
     body: `      <h2>Why NYC is a bilingual market</h2>
@@ -1035,7 +1035,7 @@ const pages = [
       "Bilingual (EN/ES) communications consulting for Brooklyn-based nonprofits, schools, and community organizations whose audiences are bilingual.",
     breadcrumbName: "Brooklyn",
     eyebrow: "Service · S · 06 · Brooklyn",
-    h1: "Bilingual Communications in <em>Brooklyn</em>",
+    h1: "Bilingual Communications in <span>Brooklyn</span>",
     lede: "Brooklyn's bilingual neighborhoods — Sunset Park, Bushwick, parts of Bay Ridge, Williamsburg's outer blocks — deserve communications built for them, not translated to them.",
     ctaText: "Brooklyn-based organization serving bilingual communities?",
     body: `      <h2>Brooklyn's bilingual reality</h2>
@@ -1070,7 +1070,7 @@ const pages = [
       "Bilingual (EN/ES) communications consulting for Manhattan-based nonprofits, schools, NGOs, and foundations whose audiences are bilingual.",
     breadcrumbName: "Manhattan",
     eyebrow: "Service · S · 06 · Manhattan",
-    h1: "Bilingual Communications in <em>Manhattan</em>",
+    h1: "Bilingual Communications in <span>Manhattan</span>",
     lede: "Manhattan's bilingual communities — Washington Heights, Inwood, El Barrio, and the Lower East Side — deserve organizations whose communications match the neighborhoods they're part of.",
     ctaText: "Manhattan organization serving a bilingual community?",
     body: `      <h2>Manhattan's bilingual neighborhoods</h2>

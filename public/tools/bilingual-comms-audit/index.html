@@ -22,7 +22,7 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Newsreader:ital,opsz,wght@0,6..72,300..700;1,6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif&family=Newsreader:opsz,wght@6..72,300..700&family=Geist:wght@300..700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet" />
 
     <script type="application/ld+json">
     {
@@ -70,7 +70,7 @@
       main{max-width:var(--max);margin:0 auto;padding:64px var(--gutter) 96px;}
       .eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);display:inline-flex;align-items:center;gap:10px;margin-bottom:24px;}
       .eyebrow::before{content:"";width:28px;height:1px;background:currentColor;opacity:0.55;}
-      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,48px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:24px;}h1 em{font-style:italic;}
+      h1{font-family:var(--display);font-weight:400;font-size:clamp(36px,5vw,48px);letter-spacing:-0.02em;line-height:1.05;margin-bottom:24px;}h1 em{font-style:normal;}
       .lede{font-size:20px;line-height:1.5;margin-bottom:32px;color:var(--forest-ink);}
       .meta-row{display:flex;gap:24px;font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);padding:18px 0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);margin-bottom:48px;}
       .quiz{margin-bottom:32px;}
@@ -100,10 +100,10 @@
       .quiz.hide{display:none;}
       .score-display{text-align:center;padding:48px 0;border-bottom:1px solid var(--rule);margin-bottom:48px;}
       .score-num{font-family:var(--display);font-size:clamp(96px,18vw,160px);line-height:1;color:var(--forest-deep);font-weight:400;}
-      .score-num em{font-style:italic;color:var(--moss);font-size:0.4em;}
+      .score-num em{font-style:normal;color:var(--moss);font-size:0.4em;}
       .score-label{font-family:var(--mono);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--muted);margin-top:8px;}
-      .score-band{font-family:var(--display);font-size:24px;font-style:italic;color:var(--forest-deep);margin-top:16px;}
-      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;margin-top:48px;margin-bottom:20px;line-height:1.15;}h2 em{font-style:italic;}
+      .score-band{font-family:var(--display);font-size:24px;font-style:normal;color:var(--forest-deep);margin-top:16px;}
+      h2{font-family:var(--display);font-weight:400;font-size:clamp(28px,4vw,36px);letter-spacing:-0.015em;margin-top:48px;margin-bottom:20px;line-height:1.15;}h2 em{font-style:normal;}
       .recommendation{padding:24px;background:var(--ivory-warm);border-left:2px solid var(--moss);margin-bottom:16px;}
       .recommendation-num{font-family:var(--mono);font-size:11px;letter-spacing:0.14em;text-transform:uppercase;color:var(--muted);margin-bottom:6px;}
       .recommendation-text{font-size:17px;line-height:1.55;}
@@ -112,7 +112,7 @@
       .breakdown-row{display:flex;justify-content:space-between;padding:10px 14px;background:var(--ivory-warm);border:1px solid var(--rule);border-radius:4px;}
       .breakdown-label{flex:1;}.breakdown-score{font-family:var(--mono);color:var(--forest-deep);font-weight:600;}
       .cta{margin-top:64px;padding:40px;background:var(--forest-ink);color:var(--ivory);border-radius:6px;text-align:center;}
-      .cta h3{font-family:var(--display);font-size:28px;line-height:1.2;margin-bottom:12px;font-weight:400;color:var(--ivory);}.cta h3 em{font-style:italic;color:var(--moss);}
+      .cta h3{font-family:var(--display);font-size:28px;line-height:1.2;margin-bottom:12px;font-weight:400;color:var(--ivory);}.cta h3 em{font-style:normal;color:var(--moss);}
       .cta p{font-size:16px;margin-bottom:20px;color:oklch(0.965 0.012 85 / 0.85);}
       .cta .button{display:inline-block;font-family:var(--sans);font-size:14px;letter-spacing:0.02em;padding:14px 28px;background:var(--moss);color:var(--ivory);text-decoration:none;border-radius:4px;font-weight:500;}
       .cta .button:hover{background:oklch(0.62 0.11 55);}
@@ -144,7 +144,7 @@
 
     <main>
       <div class="eyebrow">Free Tool · 10 Minutes</div>
-      <h1>Bilingual Communications <em>Audit</em></h1>
+      <h1>Bilingual Communications <span>Audit</span></h1>
       <p class="lede">A 10-question self-assessment for nonprofits, schools, and mission-driven organizations that serve Spanish-speaking communities. Identifies whether your bilingual practice is structural or just translation-step, and recommends 3-5 concrete next moves.</p>
       <div class="meta-row">
         <span>10 questions</span>
@@ -168,18 +168,18 @@
 
       <div class="results" id="results">
         <div class="score-display">
-          <div class="score-num"><span id="score-value">0</span><em>/100</em></div>
+          <div class="score-num"><span id="score-value">0</span><span>/100</span></div>
           <div class="score-label">Your Bilingual Comms Score</div>
           <div class="score-band" id="score-band"></div>
         </div>
 
-        <h2>Where you scored <em>strong</em></h2>
+        <h2>Where you scored <span>strong</span></h2>
         <div id="strengths"></div>
 
-        <h2>Where you have <em>headroom</em></h2>
+        <h2>Where you have <span>headroom</span></h2>
         <div id="headroom"></div>
 
-        <h2>Your top <em>3 next moves</em></h2>
+        <h2>Your top <span>3 next moves</span></h2>
         <div id="recommendations"></div>
 
         <div class="email-capture">
@@ -196,7 +196,7 @@
         </div>
 
         <div class="cta">
-          <h3>Ready to move from translation to <em>structural bilingual?</em></h3>
+          <h3>Ready to move from translation to <span>structural bilingual?</span></h3>
           <p>Bring me into a campaign, brief, or comms team build. Audit context above carries directly into the conversation.</p>
           <a class="button" href="/#contact">Work with me →</a>
         </div>
